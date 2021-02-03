@@ -1,3 +1,9 @@
+import Header from './Header.js';
+
 export default function App() {
-  return <div>hello world</div>;
+  return
+  <div>
+    <Header />
+    <App_body />
+  </div>;
 }
