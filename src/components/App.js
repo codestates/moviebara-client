@@ -13,7 +13,6 @@ import Header from "./Header.js";
 
 export default function App() {
   return (
-    
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
@@ -33,8 +32,7 @@ export default function App() {
           </Switch>
         </div>
       </div>
-      </Router>
-      
+    </Router>
   );
 }
 
