@@ -7,36 +7,40 @@ import {
   useParams,
 } from "react-router-dom";
 
+import Login from "./Login.js";
+import styles from "../css/app.module.css";
 
 export default function App() {
   return (
     
     <Router>
-      <div>
-      
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
-
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/topics">
-            <Topics />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <div className={styles.container}>
+        <nav className={styles.nav}>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/topics">Topics</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className={styles.pages}>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/topics">
+              <Topics />
+            </Route>
+            <Route path="/">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
       </div>
       </Router>
       
