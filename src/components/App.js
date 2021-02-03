@@ -9,23 +9,15 @@ import {
 
 import Login from "./Login.js";
 import styles from "../css/app.module.css";
+import Header from "./Header.js";
 
 export default function App() {
   return (
+    
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/topics">Topics</Link>
-            </li>
-          </ul>
+          <Header />
         </nav>
         <div className={styles.pages}>
           <Switch>
@@ -41,7 +33,8 @@ export default function App() {
           </Switch>
         </div>
       </div>
-    </Router>
+      </Router>
+      
   );
 }
 
