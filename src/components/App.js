@@ -7,7 +7,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Login from "./Login.js";
+import Sign from "./Sign.js";
 import styles from "../css/app.module.css";
 import Header from "./Header.js";
 
@@ -27,7 +27,7 @@ export default function App() {
               <Topics />
             </Route>
             <Route path="/">
-              <Login />
+              <Sign />
             </Route>
           </Switch>
         </div>

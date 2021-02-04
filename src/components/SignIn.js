@@ -1,6 +1,6 @@
 import styles from "../css/login.module.css";
 
-export default function SignUp() {
+export default function SignIn() {
   return (
     <div>
       <div className={styles.inputBox}>
@@ -10,7 +10,7 @@ export default function SignUp() {
         <input type="password" placeholder="password"></input>
       </div>
       <div className={styles.buttonBox}>
-        <button>SignUp</button>
+        <button>SignIn</button>
       </div>
     </div>
   );

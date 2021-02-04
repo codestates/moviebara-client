@@ -1,9 +1,19 @@
 import styles from "../css/login.module.css";
+import SignIn from "./SignIn.js";
+import SignUp from "./SignUp.js";
+import { Switch, Route, Link } from "react-router-dom";
 
-export default function Login() {
+export default function Sign() {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
+        <div>
+          <Switch>
+            <Route path="/signup">
+              <Link to="/signin">{"뒤로가기"}</Link>
+            </Route>
+          </Switch>
+        </div>
         <div className={styles.logo}>
           <svg
             width="177"
@@ -60,15 +70,14 @@ export default function Login() {
             />
           </svg>
         </div>
-        <div className={styles.inputBox}>
-          <input type="text" placeholder="email"></input>
-        </div>
-        <div className={styles.inputBox}>
-          <input type="password" placeholder="password"></input>
-        </div>
-        <div className={styles.buttonBox}>
-          <button>Login</button>
-        </div>
+        <Switch>
+          <Route path="/signin">
+            <SignIn />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+        </Switch>
       </div>
     </div>
   );
