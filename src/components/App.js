@@ -12,6 +12,13 @@ import styles from "../css/app.module.css";
 import Header from "./Header.js";
 
 export default function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    // 로그인 요청
+  });
+
   return (
     <Router>
       <div className={styles.container}>
@@ -27,7 +34,7 @@ export default function App() {
               <Topics />
             </Route>
             <Route path="/">
-              <Sign />
+              <Sign isLogin={isLogin} />
             </Route>
           </Switch>
         </div>

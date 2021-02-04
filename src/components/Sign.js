@@ -1,9 +1,15 @@
 import styles from "../css/login.module.css";
 import SignIn from "./SignIn.js";
 import SignUp from "./SignUp.js";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useHistory } from "react-router-dom";
 
-export default function Sign() {
+export default function Sign(props) {
+  const history = useHistory();
+
+  if (props.isLogin) {
+    history.push("/main");
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.box}>
