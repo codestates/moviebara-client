@@ -37,6 +37,7 @@ function Header() {
       <span className={styles.nav_bar}>
         <Link to="/signup"> Sign Up</Link>
         <Link to="/none_membership_login">비회원 login</Link>
+        <Link to="/topics">test</Link>
       </span>
     </div>
   );
