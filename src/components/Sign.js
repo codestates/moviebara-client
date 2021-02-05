@@ -8,6 +8,8 @@ export default function Sign(props) {
 
   if (props.isLogin) {
     history.push("/main");
+  } else {
+    history.push("/signin");
   }
 
   return (

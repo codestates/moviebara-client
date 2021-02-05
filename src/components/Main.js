@@ -1,14 +1,14 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import styles from "../css/main.module.css";
 import movies from "../dummy/movies.json";
 import posts from "../dummy/posts.json";
 const data = movies.movies;
 const postsData = posts.posts;
+
 function Main() {
   const handleClick = (e) => {
     this.props.history.push(`/mv_${e.key}`);
   };
+
   return (
     <div className={styles.container}>
       {data.map((mv) => {
