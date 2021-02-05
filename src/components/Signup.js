@@ -9,6 +9,12 @@ export default function SignUp() {
       <div className={styles.inputBox}>
         <input type="password" placeholder="password"></input>
       </div>
+      <div className={styles.inputBox}>
+        <input type="password" placeholder="password check"></input>
+      </div>
+      <div className={styles.inputBox}>
+        <input type="text" placeholder="nickname"></input>
+      </div>
       <div className={styles.buttonBox}>
         <button>SignUp</button>
       </div>

@@ -6,12 +6,20 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import Sign from "./Sign.js";
 import styles from "../css/app.module.css";
 import Header from "./Header.js";
+import Main from "./Main.js";
 
 export default function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    // 로그인 요청
+  });
+
   return (
     <Router>
       <div className={styles.container}>
@@ -26,8 +34,11 @@ export default function App() {
             <Route path="/topics">
               <Topics />
             </Route>
+            <Route path="/main">
+              <Main />
+            </Route>
             <Route path="/">
-              <Sign />
+              <Sign isLogin={isLogin} />
             </Route>
           </Switch>
         </div>
