@@ -4,7 +4,7 @@ import posts from "../dummy/posts.json";
 const data = movies.movies;
 const postsData = posts.posts;
 
-function Main() {
+export function Main() {
   const handleClick = (e) => {
     this.props.history.push(`/mv_${e.key}`);
   };
@@ -26,7 +26,7 @@ function Main() {
   );
 }
 
-function Mvposts({ id, data }) {
+export function Mvposts({ id, data }) {
   const mv = data.filter((m) => {
     return m.id === id;
   });
@@ -50,5 +50,3 @@ function Mvposts({ id, data }) {
     </div>
   );
 }
-
-export default Main;
