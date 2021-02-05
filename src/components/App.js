@@ -12,6 +12,7 @@ import styles from "../css/app.module.css";
 import Header from "./Header.js";
 import { Main } from "./Main.js";
 import MyPage from "./Mypage.js";
+import Post from "./Post.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -40,6 +41,9 @@ export default function App() {
             </Route>
             <Route path="/main">
               <Main />
+            </Route>
+            <Route path="/post">
+              <Post />
             </Route>
             <Route path="/">
               <Sign isLogin={isLogin} />
