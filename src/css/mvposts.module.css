@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mvInfo > span > img {
+  width: 200px;
+  height: 300px;
+}
+
+.mvInfo {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
