@@ -10,7 +10,7 @@ import React, { useEffect, useState } from "react";
 import Sign from "./Sign.js";
 import styles from "../css/app.module.css";
 import Header from "./Header.js";
-import { Main } from "./Main.js";
+import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
 
