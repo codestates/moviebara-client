@@ -5,9 +5,8 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
 
-function Header() {
-  const islogin = false;
-  return islogin ? (
+function Header({ isLogin }) {
+  return isLogin ? (
     <div className={styles.header}>
       <span className={styles.logo}>
         <Link to="/main">Home</Link>

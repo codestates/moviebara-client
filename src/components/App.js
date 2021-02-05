@@ -13,7 +13,7 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 
 export default function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function App() {
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <Header />
+          <Header isLogin={isLogin} />
         </nav>
         <div className={styles.pages}>
           <Switch>
