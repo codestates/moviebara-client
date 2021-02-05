@@ -10,7 +10,9 @@ import React, { useEffect, useState } from "react";
 import Sign from "./Sign.js";
 import styles from "../css/app.module.css";
 import Header from "./Header.js";
-import Main from "./Main.js";
+import { Main } from "./Main.js";
+import MyPage from "./Mypage.js";
+import Post from "./Post.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(true);
@@ -28,6 +30,9 @@ export default function App() {
         </nav>
         <div className={styles.pages}>
           <Switch>
+            <Route path="/mypage">
+              <MyPage />
+            </Route>
             <Route path="/about">
               <About />
             </Route>
@@ -36,6 +41,9 @@ export default function App() {
             </Route>
             <Route path="/main">
               <Main />
+            </Route>
+            <Route path="/post">
+              <Post />
             </Route>
             <Route path="/">
               <Sign isLogin={isLogin} />
