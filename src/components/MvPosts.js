@@ -36,7 +36,7 @@ export default function MvPosts() {
         <Switch>
           <Route exact path={match.path}>
             <Link to={`${match.url}/create`}>새글쓰기</Link>
-            <PostList mvPosts={mvPosts} />
+            <PostList posts={mvPosts} />
           </Route>
           <Route path={`${match.path}/create`}>
             <NewReview movie_id={mv.id} />
