@@ -1,11 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
-
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import styles from "../css/userhome.module.css";
 import posts from "../dummy/posts.json";
 import users from "../dummy/users.json";
