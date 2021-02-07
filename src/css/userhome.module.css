@@ -1,0 +1,36 @@
+* {
+  width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between flex-start;
+
+  padding: 10px;
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.linksBox {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  border: solid 1px black;
+  width: 99%;
+}
+
+Link {
+  text-align: center;
+}
