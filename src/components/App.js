@@ -15,7 +15,7 @@ import MyPage from "./Mypage.js";
 import Post from "./Post.js";
 
 export default function App() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
