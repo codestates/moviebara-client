@@ -22,6 +22,10 @@ export default function App() {
     // 로그인 요청
   });
 
+  const loginHandler = () => {
+    setIsLogin(!isLogin);
+  };
+
   return (
     <Router>
       <div className={styles.container}>
@@ -46,7 +50,7 @@ export default function App() {
               <Post />
             </Route>
             <Route path="/">
-              <Sign isLogin={isLogin} />
+              <Sign isLogin={isLogin} loginHandler={loginHandler} />
             </Route>
           </Switch>
         </div>

@@ -1,11 +1,12 @@
 import styles from "../css/login.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
+  const history = useHistory();
   const submitLogin = () => {
     const data = JSON.stringify({
       password: password,
@@ -14,23 +15,21 @@ export default function SignIn() {
 
     const config = {
       method: "post",
-      url: "https://api.moviebara.com/login/",
+      url: "http://localhost:4000/login/",
       headers: {
         "Content-Type": "application/json",
       },
-      data: data,
+
+      data,
     };
 
     axios(config)
-      .then(function (response) {
-        axios
-          .get("https://api.moviebara.com/users/")
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+      .then(function (res) {
+        console.log(res);
+        axios.get("http://localhost:4000/users/").then((res) => {
+          props.loginHandler();
+          history.push("/");
+        });
       })
       .catch(function (error) {
         console.log(error);

@@ -20,7 +20,7 @@ function Header({ isLogin }) {
         <input
           type="text"
           className={styles.search_bar}
-          onChange={setKeyword(e.value)}
+          onChange={(e) => setKeyword(e.target.value)}
         />
         <button className={styles.search_btn} onClick={}>
           search
