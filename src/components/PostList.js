@@ -1,10 +1,10 @@
 import styles from "../css/postlist.module.css";
 import Post from "./Post.js";
-
+import { Link, useRouteMatch } from "react-router-dom";
 export default function PostList({ posts, userInfo, scraps, deleteHandler }) {
   const { id } = userInfo;
   const scrapedId = scraps.map((p) => p.id);
-
+  const match = useRouteMatch();
   return (
     <div className={styles.posts_box}>
       {posts.map((p) => {
@@ -25,13 +25,9 @@ export default function PostList({ posts, userInfo, scraps, deleteHandler }) {
             <Post key={p.id} post={p} />
 
             {scrapedId.includes(p.id) ? (
-              <div className={styles.scrap_btn} onClick={handleUnscrap}>
-                스크랩 취소
-              </div>
+              <div className={styles.scrap_btn}>스크랩 취소</div>
             ) : (
-              <div className={styles.scrap_btn} onClick={handleScrap}>
-                스크랩
-              </div>
+              <div className={styles.scrap_btn}>스크랩</div>
             )}
           </div>
         );

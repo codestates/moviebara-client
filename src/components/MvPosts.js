@@ -119,8 +119,8 @@ export default function MvPosts({ userInfo, scraps, accessToken }) {
           <p>
             {mvInfo.title}, {mvInfo.year}{" "}
           </p>
-          <p>장르 : {mv.genre}</p>
-          <p>줄거리 : {mv.summary}</p>
+          <p>장르 : {mvInfo.genre}</p>
+          <p>줄거리 : {mvInfo.summary}</p>
         </div>
       </div>
       <div className={styles.posts_box}>

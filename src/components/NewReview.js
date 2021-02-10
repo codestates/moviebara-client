@@ -44,10 +44,15 @@ export default function NewReview({ movieId, userId, accessToken }) {
     <div className={styles.contatiner}>
       <div className={styles.rating_box}>
         <p>영화 평점</p>
-        <MvRate handleStarClick={handleStarClick} />
+        <MvRate handleStarClick={handleStarClick} clicked={clicked} />
       </div>
       <div className={styles.text_box}>
-        <input type="text" onChange={setText(e.value)} />
+        <input
+          type="text"
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        />
       </div>
       <form className={styles.submit} onClick={handleSubmit}>
         리뷰 등록
