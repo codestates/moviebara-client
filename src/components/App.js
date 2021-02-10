@@ -13,6 +13,7 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
+import Userhome from "./Userhome.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -33,9 +34,7 @@ export default function App() {
             <Route path="/mypage">
               <MyPage />
             </Route>
-            <Route path="/about">
-              <About />
-            </Route>
+            <Route path="/userhome">{/* <Userhome /> */}</Route>
             <Route path="/topics">
               <Topics />
             </Route>

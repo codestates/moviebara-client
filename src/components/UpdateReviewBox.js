@@ -19,7 +19,7 @@ export default function UpdateReviewBox() {
     axios
       .get(`https://api.moviebara.com/posts?user_id=${userId}`, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          // Authorization: `Bearer ${accessToken}`,
           "Content-Type": "text/plain",
         },
         withCredentials: true,
@@ -60,7 +60,7 @@ export default function UpdateReviewBox() {
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            // Authorization: `Bearer ${accessToken}`,
             "Content-Type": "text/plain",
           },
           withCredentials: true,
@@ -76,7 +76,11 @@ export default function UpdateReviewBox() {
         <MvRate handleStarClick={handleStarClick} />
       </div>
       <div className={styles.text_box}>
-        <input type="text" value={text} onChange={setText(e.value)} />
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
       </div>
       <form className={styles.submit} onClick={handleSubmit}>
         리뷰 수정
