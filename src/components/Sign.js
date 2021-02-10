@@ -80,7 +80,10 @@ export default function Sign(props) {
         </div>
         <Switch>
           <Route path="/signin">
-            <SignIn />
+            <SignIn
+              setIsLogin={props.setIsLogin}
+              setUserInfo={props.setUserInfo}
+            />
           </Route>
           <Route path="/signup">
             <SignUp />

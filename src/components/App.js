@@ -16,7 +16,7 @@ import Post from "./Post.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [token, setToken] = useState(null);
+  const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     // 로그인 요청
@@ -46,7 +46,11 @@ export default function App() {
               <Post />
             </Route>
             <Route path="/">
-              <Sign isLogin={isLogin} />
+              <Sign
+                isLogin={isLogin}
+                setIsLogin={setIsLogin}
+                setUserInfo={setUserInfo}
+              />
             </Route>
           </Switch>
         </div>

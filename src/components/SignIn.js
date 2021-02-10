@@ -1,10 +1,12 @@
 import styles from "../css/login.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
   const submitLogin = () => {
     const data = JSON.stringify({
@@ -22,17 +24,19 @@ export default function SignIn() {
     };
 
     axios(config)
-      .then(function (response) {
+      .then(() => {
         axios
           .get("https://api.moviebara.com/users/")
           .then((res) => {
-            console.log(res.data);
+            props.setIsLogin(true);
+            props.setUserInfo(res.data);
+            history.push("/");
           })
-          .catch((e) => {
-            console.log(e);
+          .catch((error) => {
+            console.log(error);
           });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
