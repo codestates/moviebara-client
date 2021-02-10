@@ -1,7 +1,9 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./components/App.js";
+import axios from "axios";
 
+axios.defaults.withCredentials = true;
 const root = document.getElementById("root");
 
 ReactDOM.render(<App />, root);
