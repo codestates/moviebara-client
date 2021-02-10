@@ -3,7 +3,7 @@ import styles from "../css/mvrate.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function MvRate({ handleStarClick }) {
+export default function MvRate({ handleStarClick, clicked }) {
   return (
     <div className={styles.rating}>
       <p>Rating</p>
