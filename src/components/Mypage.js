@@ -15,7 +15,7 @@ export default function MyPage() {
 
   return (
     <div className={styles.box}>
-      <label for="fileUploader" className={styles.profileLabel}>
+      <label htmlFor="fileUploader" className={styles.profileLabel}>
         <div className={styles.profileFilter}>
           <FontAwesomeIcon icon={faCamera} size="3x" />
         </div>

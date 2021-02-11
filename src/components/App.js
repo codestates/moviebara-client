@@ -13,12 +13,13 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
+import Userhome from "./Userhome.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [token, setToken] = useState(null);
-  const [userInfo, setUserInfo] = useState();
-  console.log(userInfo + "App0000000000000");
+  const [userInfo, setUserInfo] = useState({});
+
+
   useEffect(() => {
     // 로그인 요청
   });
@@ -40,9 +41,7 @@ export default function App() {
             <Route path="/mypage">
               <MyPage />
             </Route>
-            <Route path="/about">
-              <About />
-            </Route>
+            <Route path="/userhome">{/* <Userhome /> */}</Route>
             <Route path="/topics">
               <Topics />
             </Route>
@@ -55,8 +54,8 @@ export default function App() {
             <Route path="/">
               <Sign
                 isLogin={isLogin}
-                loginHandler={loginHandler}
-                userInfoHandler={userInfoHandler}
+                setIsLogin={setIsLogin}
+                setUserInfo={setUserInfo}
               />
             </Route>
           </Switch>

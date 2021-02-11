@@ -7,6 +7,7 @@ export default function SignIn(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
+
   const submitLogin = () => {
     const data = JSON.stringify({
       password: password,
@@ -24,14 +25,19 @@ export default function SignIn(props) {
     };
 
     axios(config)
-      .then(function (res) {
-        axios.get("http://localhost:4000/users/").then((res) => {
-          props.userInfoHandler(res.data);
-          props.loginHandler();
-          history.push("/");
-        });
+      .then(() => {
+        axios
+          .get("https://api.moviebara.com/users/")
+          .then((res) => {
+            props.setIsLogin(true);
+            props.setUserInfo(res.data);
+            history.push("/");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
