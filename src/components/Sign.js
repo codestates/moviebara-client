@@ -81,7 +81,10 @@ export default function Sign(props) {
         </div>
         <Switch>
           <Route path="/signin">
-            <SignIn loginHandler={props.loginHandler} />
+            <SignIn
+              loginHandler={props.loginHandler}
+              userInfoHandler={props.userInfoHandler}
+            />
           </Route>
           <Route path="/signup">
             <SignUp />

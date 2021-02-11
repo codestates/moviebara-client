@@ -1,16 +1,7 @@
-svg {
-  color: #c7c7c7;
-  cursor: pointer;
+.rate_box {
+  width: 100px;
 }
 
-div {
-  width: 120px;
-}
-
-div:hover svg {
-  color: rgb(212, 180, 0);
-}
-
-svg:hover ~ svg {
-  color: #c7c7c7;
+.clickedstar {
+  color: yellow;
 }

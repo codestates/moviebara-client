@@ -17,7 +17,8 @@ import Post from "./Post.js";
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [token, setToken] = useState(null);
-
+  const [userInfo, setUserInfo] = useState();
+  console.log(userInfo + "App0000000000000");
   useEffect(() => {
     // 로그인 요청
   });
@@ -25,7 +26,9 @@ export default function App() {
   const loginHandler = () => {
     setIsLogin(!isLogin);
   };
-
+  const userInfoHandler = (data) => {
+    setUserInfo(data);
+  };
   return (
     <Router>
       <div className={styles.container}>
@@ -44,13 +47,17 @@ export default function App() {
               <Topics />
             </Route>
             <Route path="/main">
-              <Main />
+              <Main userInfo={userInfo} />
             </Route>
             <Route path="/post">
               <Post />
             </Route>
             <Route path="/">
-              <Sign isLogin={isLogin} loginHandler={loginHandler} />
+              <Sign
+                isLogin={isLogin}
+                loginHandler={loginHandler}
+                userInfoHandler={userInfoHandler}
+              />
             </Route>
           </Switch>
         </div>

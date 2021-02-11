@@ -25,8 +25,8 @@ export default function SignIn(props) {
 
     axios(config)
       .then(function (res) {
-        console.log(res);
         axios.get("http://localhost:4000/users/").then((res) => {
+          props.userInfoHandler(res.data);
           props.loginHandler();
           history.push("/");
         });

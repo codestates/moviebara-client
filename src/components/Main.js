@@ -2,22 +2,36 @@ import MvPosts from "./MvPosts.js";
 import MvList from "./MvList.js";
 import styles from "../css/main.module.css";
 import { Route, useRouteMatch } from "react-router";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function Main({ userInfo, scraps, movies, accessToken }) {
+function Main({ userInfo }) {
   const match = useRouteMatch();
+  const [movies, setMovies] = useState([]);
+  console.log(userInfo + "{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{");
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const getMovies = () => {
+    axios.get("http://localhost:4000/movies").then((res) => {
+      console.log(res.data);
+      setMovies(res.data);
+    });
+  };
   return (
-    <div className={styles.contatiner}>
+    <>
       <Route exact path={match.path}>
-        <MvList movies={movies} />
+        <div className={styles.contatiner}>
+          <MvList movies={movies} />
+        </div>
       </Route>
-      <Route path={`${match.path}/:id`}>
-        <MvPosts
-          userInfo={userInfo}
-          scraps={scraps}
-          accessToken={accessToken}
-        />
+      <Route path={`${match.path}/:movieId`}>
+        <div className={styles.mvPosts_box}>
+          <MvPosts userInfo={userInfo} />
+        </div>
       </Route>
-    </div>
+    </>
   );
 }
 
