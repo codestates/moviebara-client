@@ -8,7 +8,7 @@ import axios from "axios";
 function Main({ userInfo }) {
   const match = useRouteMatch();
   const [movies, setMovies] = useState([]);
-  console.log(userInfo + "{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{");
+
   useEffect(() => {
     getMovies();
   }, []);

@@ -31,8 +31,6 @@ export default function NewReview({ userId }) {
       .then(history.push(`/main/${movieId}`));
   };
 
-  console.log(userId + "*&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-
   return (
     <div className={styles.contatiner}>
       <div className={styles.rating_box}>

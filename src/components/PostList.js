@@ -17,7 +17,7 @@ export default function PostList({ posts, userInfo, deleteHandler }) {
               <Post key={p.id} post={p} />
               <div className={styles.UD_btn}>
                 <div className={styles.update_btn}>
-                  <Link to={`${match.url}/${p.user_id}/${p.movie_id}`}>
+                  <Link to={`${match.url}/${p.user.id}/${p.movie_id}`}>
                     수정
                   </Link>
                 </div>
@@ -32,7 +32,6 @@ export default function PostList({ posts, userInfo, deleteHandler }) {
           ) : (
             <div className={styles.post}>
               <Post key={p.id} post={p} />
-
               {/* {scrapedId.includes(p.id) ? (
               <div className={styles.scrap_btn}>스크랩 취소</div>
             ) : (

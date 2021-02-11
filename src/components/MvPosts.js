@@ -16,7 +16,7 @@ export default function MvPosts({ userInfo }) {
   const match = useRouteMatch();
 
   const [posts, setPosts] = useState();
-  const [message, setMessage] = useState("loading..");
+
   const [mvInfo, setMvInfo] = useState();
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function MvPosts({ userInfo }) {
   };
 
   if (mvInfo === undefined) {
-    return <div className={styles.contatiner}>{message}</div>;
+    return <div className={styles.contatiner}></div>;
   } else {
     return (
       <div className={styles.contatiner}>

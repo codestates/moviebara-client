@@ -5,6 +5,7 @@ import styles from "../css/mvlist.module.css";
 
 export default function MvList({ movies }) {
   let match = useRouteMatch();
+
   return (
     <div className={styles.container}>
       {movies.map((mv) => (
