@@ -16,10 +16,10 @@ function Header({ isLogin }) {
         <button className={styles.search_btn}>search</button>
       </span>
       <span className={styles.nav_bar}>
-        <Link to="/about">
+        <Link to="/mypage">
           <FontAwesomeIcon className={styles.mypage_btn} icon={faCog} />
         </Link>
-        <Link to="/topics">
+        <Link to="/userhome">
           <FontAwesomeIcon className={styles.myhome_btn} icon={faUserCircle} />
         </Link>
       </span>

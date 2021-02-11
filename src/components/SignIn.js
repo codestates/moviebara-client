@@ -24,14 +24,19 @@ export default function SignIn(props) {
     };
 
     axios(config)
-      .then(function (res) {
-        console.log(res);
-        axios.get("http://localhost:4000/users/").then((res) => {
-          props.loginHandler();
-          history.push("/");
-        });
+      .then(() => {
+        axios
+          .get("https://api.moviebara.com/users/")
+          .then((res) => {
+            props.setIsLogin(true);
+            props.setUserInfo(res.data);
+            history.push("/");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
