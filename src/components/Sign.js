@@ -1,7 +1,8 @@
 import styles from "../css/login.module.css";
-import SignIn from "./Signin.js";
+import SignIn from "./SignIn.js";
 import SignUp from "./Signup.js";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 export default function Sign(props) {
   const history = useHistory();
