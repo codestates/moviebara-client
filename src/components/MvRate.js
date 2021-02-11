@@ -7,7 +7,7 @@ export default function MvRate({ handleStarClick, clicked }) {
   return (
     <div className={styles.rating}>
       <p>Rating</p>
-      <div>
+      <div className={styles.rate_box}>
         <FontAwesomeIcon
           icon={faStar}
           onClick={(e) => handleStarClick(e, 0)}
