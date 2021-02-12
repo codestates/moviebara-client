@@ -7,7 +7,6 @@ export default function SignIn(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
-
   const submitLogin = () => {
     const data = JSON.stringify({
       password: password,

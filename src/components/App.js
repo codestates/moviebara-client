@@ -22,14 +22,6 @@ export default function App() {
     // 로그인 요청
   });
 
-  console.log(userInfo);
-
-  const loginHandler = () => {
-    setIsLogin(!isLogin);
-  };
-  const userInfoHandler = (data) => {
-    setUserInfo(data);
-  };
   return (
     <Router>
       <div className={styles.container}>
@@ -41,7 +33,9 @@ export default function App() {
             <Route path="/mypage">
               <MyPage userInfo={userInfo} setUserInfo={setUserInfo} />
             </Route>
-            <Route path="/userhome">{/* <Userhome /> */}</Route>
+            <Route path="/userhome">
+              <Userhome userInfo={userInfo} />
+            </Route>
             <Route path="/topics">
               <Topics />
             </Route>

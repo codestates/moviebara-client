@@ -1,0 +1,14 @@
+.post_box {
+  display: flex;
+  flex-direction: column;
+}
+.post_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.post {
+  flex: 2;
+}
+.UD_btn {
+  flex: 1;
+}
