@@ -17,7 +17,7 @@ import Userhome from "./Userhome.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
     // 로그인 요청

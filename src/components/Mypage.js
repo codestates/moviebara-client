@@ -3,8 +3,38 @@ import movies from "../dummy/movies.json";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 export default function MyPage() {
+  const [nickname, setNickname] = useState();
+  const [password, setPassword] = useState();
+  const [passwordCheck, setPasswordCheck] = useState();
+
+  const submitModified = () => {
+    const data = JSON.stringify({
+      nickname,
+      password,
+      image,
+    });
+
+    const config = {
+      method: "patch",
+      url: "https://api.moviebara.com/users/",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const [image, setImage] = useState(movies.movies[0].image);
   const fileInput = React.createRef();
 
@@ -29,10 +59,22 @@ export default function MyPage() {
         className={styles.fileUploader}
         id="fileUploader"
       ></input>
-      <input type="text" placeholder="nickname"></input>
-      <input type="password" placeholder="password"></input>
-      <input type="password" placeholder="password check"></input>
-      <button>Modified</button>
+      <input
+        type="text"
+        placeholder="nickname"
+        onChange={(e) => setNickname(e.target.value)}
+      ></input>
+      <input
+        type="password"
+        placeholder="password"
+        onChange={(e) => setPassword(e.target.value)}
+      ></input>
+      <input
+        type="password"
+        placeholder="password check"
+        onChange={(e) => setPasswordCheck(e.target.value)}
+      ></input>
+      <button onClick={submitModified}>Modified</button>
     </div>
   );
 }
