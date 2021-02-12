@@ -8,13 +8,15 @@ export default function MvList({ movies }) {
 
   return (
     <div className={styles.container}>
-      {movies.map((mv) => (
-        <div key={mv.id} className={styles.poster}>
-          <Link to={`${match.url}/${mv.id}`}>
-            <MvDesc mv={mv} />
-          </Link>
-        </div>
-      ))}
+      {Array.isArray(movies)
+        ? movies.map((mv) => (
+            <div key={mv.id} className={styles.poster}>
+              <Link to={`${match.url}/${mv.id}`}>
+                <MvDesc mv={mv} />
+              </Link>
+            </div>
+          ))
+        : ""}
     </div>
   );
 }

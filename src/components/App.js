@@ -22,6 +22,8 @@ export default function App() {
     // 로그인 요청
   });
 
+  console.log(userInfo);
+
   const loginHandler = () => {
     setIsLogin(!isLogin);
   };
@@ -37,7 +39,7 @@ export default function App() {
         <div className={styles.pages}>
           <Switch>
             <Route path="/mypage">
-              <MyPage />
+              <MyPage userInfo={userInfo} setUserInfo={setUserInfo} />
             </Route>
             <Route path="/userhome">{/* <Userhome /> */}</Route>
             <Route path="/topics">

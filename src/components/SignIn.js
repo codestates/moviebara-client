@@ -20,17 +20,17 @@ export default function SignIn(props) {
       headers: {
         "Content-Type": "application/json",
       },
-
       data,
     };
 
     axios(config)
       .then(() => {
         axios
-          .get("https://api.moviebara.com/users/")
+          .get("http://localhost:4000/users/")
           .then((res) => {
             props.setIsLogin(true);
-            props.setUserInfo(res.data);
+            props.setUserInfo(res.data.data);
+            // console.log(res.data.data);
             history.push("/");
           })
           .catch((error) => {
