@@ -16,11 +16,12 @@ export default function SignIn(props) {
 
     const config = {
       method: "post",
-      url: "https://api.moviebara.com/login/",
+      url: "http://localhost:4000/login/",
       headers: {
         "Content-Type": "application/json",
       },
-      data: data,
+
+      data,
     };
 
     axios(config)

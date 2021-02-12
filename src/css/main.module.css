@@ -5,15 +5,13 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  overflow: visible;
 }
-.poster {
-  display: grid;
-  place-items: center;
-  border: solid 1px black;
-  background-color: blue;
-}
-
-.poster > img {
-  width: 105px;
-  height: 130px;
+.mvposts_box {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

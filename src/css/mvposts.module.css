@@ -1,15 +1,42 @@
 .container {
   display: flex;
   flex-direction: column;
+  overflow: visible;
+  width: 100vh;
+  height: 100vh;
 }
 
-.mvInfo > span > img {
+.mvPoster > img {
   width: 200px;
   height: 300px;
 }
-
+.mvInfo_box {
+  border: solid 1px black;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 3px;
+  overflow: visible;
+}
 .mvInfo {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+}
+
+.newReview_btn {
+  width: 95%;
+  border: solid 1px black;
+  margin: 5px;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.posts {
+  width: 95;
+  position: relative;
 }

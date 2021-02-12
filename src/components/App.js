@@ -13,7 +13,6 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
-import Userhome from "./Userhome.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -23,6 +22,12 @@ export default function App() {
     // 로그인 요청
   });
 
+  const loginHandler = () => {
+    setIsLogin(!isLogin);
+  };
+  const userInfoHandler = (data) => {
+    setUserInfo(data);
+  };
   return (
     <Router>
       <div className={styles.container}>
@@ -39,7 +44,7 @@ export default function App() {
               <Topics />
             </Route>
             <Route path="/main">
-              <Main />
+              <Main userInfo={userInfo} />
             </Route>
             <Route path="/post">
               <Post />
