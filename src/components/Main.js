@@ -15,8 +15,8 @@ function Main({ userInfo }) {
 
   const getMovies = () => {
     axios.get("http://localhost:4000/movies").then((res) => {
-      console.log(res.data);
-      setMovies(res.data);
+      console.log(res.data.data);
+      setMovies(res.data.data);
     });
   };
   return (
