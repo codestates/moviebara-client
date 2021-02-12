@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function NewReview({ userId }) {
+export default function NewReview({ userInfo, setPosts }) {
   const [clicked, setClicked] = useState([false, false, false, false, false]);
   const [text, setText] = useState("");
   const history = useHistory();
@@ -20,15 +20,35 @@ export default function NewReview({ userId }) {
   };
 
   const handleSubmit = () => {
-    const data = {
-      userId: userId.id,
-      movieId,
-      rate: 0,
+    const data = JSON.stringify({
+      userId: userInfo.id,
+      movieId: Number(movieId),
+      rate: 8.3,
       text,
+    });
+
+    const config = {
+      method: "post",
+      url: "http://localhost:4000/posts/",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      data,
     };
-    axios
-      .post(`http://localhost:4000/posts`, JSON.stringify(data))
-      .then(history.push(`/main/${movieId}`));
+
+    axios(config).then((res) => {
+      axios
+        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .then((res) => {
+          console.log("what the ffffffffffffffffff");
+          setPosts(res.data.post);
+          history.push(`/main/${movieId}`);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
   };
 
   return (
