@@ -35,7 +35,7 @@ export default function App() {
               <MyPage />
             </Route>
             <Route path="/userhome">
-              <Userhome />
+              <Userhome userInfo={userInfo} />
             </Route>
             <Route path="/topics">
               <Topics />
