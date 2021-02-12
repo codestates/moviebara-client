@@ -13,11 +13,10 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
-import Userhome from "./Userhome.js";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
     // 로그인 요청
@@ -32,7 +31,7 @@ export default function App() {
         <div className={styles.pages}>
           <Switch>
             <Route path="/mypage">
-              <MyPage />
+              <MyPage userInfo={userInfo} setUserInfo={setUserInfo} />
             </Route>
             <Route path="/userhome">
               <Userhome userInfo={userInfo} />

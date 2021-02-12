@@ -2,16 +2,18 @@ import styles from "../css/login.module.css";
 import SignIn from "./SignIn.js";
 import SignUp from "./Signup.js";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 export default function Sign(props) {
   const history = useHistory();
 
-  if (props.isLogin) {
-    history.push("/main");
-  } else {
-    history.push("/signin");
-  }
+  useEffect(() => {
+    if (props.isLogin) {
+      history.push("/main");
+    } else {
+      history.push("/signin");
+    }
+  });
 
   return (
     <div className={styles.container}>
