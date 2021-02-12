@@ -32,26 +32,32 @@ export default function MvPosts({ userInfo }) {
       setPosts(null);
       setMvInfo(null);
       setLoading(true);
-      setScraps(null);
-      setScraps_id(null);
+      setScraps([]);
+      setScraps_id([]);
       await axios
         .get(`http://localhost:4000/posts?movie_id=${movieId}`)
         .then((res) => {
-          console.log(res.data.post);
-          setPosts(res.data.post);
+          console.log(res.data.data);
+          setPosts(res.data.data);
         });
       await axios
         .get(`http://localhost:4000/movies?movie_id=${movieId}`)
         .then((res) => {
-          console.log(res.data);
-          setMvInfo(res.data);
+          console.log(res.data.data);
+          setMvInfo(res.data.data);
         });
       await axios
         .get(`http://localhost:4000/scraps?user_id=${id}`)
         .then((res) => {
-          setScraps(res.data.data);
-          const scrapIds = res.data.data.map((p) => p.postId);
-          setScraps_id(scrapIds);
+          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+          }
         });
     } catch (e) {
       console.log(e);
@@ -76,7 +82,7 @@ export default function MvPosts({ userInfo }) {
         .get(`http://localhost:4000/posts?movie_id=${movieId}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
-          setPosts(res.data.post);
+          setPosts(res.data.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -99,10 +105,15 @@ export default function MvPosts({ userInfo }) {
       axios
         .get(`http://localhost:4000/scraps?user_id=${id}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
-          setScraps(res.data.data);
-          const scrapIds = res.data.data.map((p) => p.postId);
-          setScraps_id(scrapIds);
+          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -125,10 +136,15 @@ export default function MvPosts({ userInfo }) {
       axios
         .get(`http://localhost:4000/scraps?user_id=${id}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
-          setScraps(res.data.data);
-          const scrapIds = res.data.data.map((p) => p.postId);
-          setScraps_id(scrapIds);
+          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -176,7 +192,7 @@ export default function MvPosts({ userInfo }) {
               <NewReview userInfo={userInfo} setPosts={setPosts} />
             </Route>
             <Route path={`${match.path}/:postId`}>
-              <UpdateReviewBox />
+              <UpdateReviewBox userInfo={userInfo} setPosts={setPosts} />
             </Route>
           </Switch>
         </div>

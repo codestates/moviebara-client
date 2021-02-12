@@ -16,8 +16,8 @@ export default function Userhome({ userInfo }) {
   const { id, nickname, image } = userInfo;
   const match = useRouteMatch();
   const [posts, setPosts] = useState(null);
-  const [scraps, setScraps] = useState(null);
-  const [scraps_id, setScraps_id] = useState(null);
+  const [scraps, setScraps] = useState([]);
+  const [scraps_id, setScraps_id] = useState([]);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -36,29 +36,33 @@ export default function Userhome({ userInfo }) {
       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
       setError(null);
       setPosts(null);
-      setScraps(null);
-      setScraps_id(null);
+      setScraps([]);
+      setScraps_id([]);
       setData(null);
 
       // loading 상태를 true 로 바꿉니다.
-      setLoading(true);
+
       const response = await axios.get(
         `http://localhost:4000/posts?user_id=${id}`
       );
       const response2 = await axios.get(
         `http://localhost:4000/scraps?user_id=${id}`
       );
-
-      setPosts(response.data.post);
-      setData(response.data.post);
-      setScraps(response2.data.data);
-      const scrapIds = response2.data.data.map((p) => p.postId);
-      setScraps_id(scrapIds);
+      console.log(response.data.data);
+      console.log(response2.data.data);
+      setPosts(response.data.data);
+      setData(response.data.data);
+      if (!response2.data.data) {
+        setScraps([]);
+        setScraps_id([]);
+      } else {
+        setScraps(response2.data.data);
+        const scrapIds = response2.data.data.map((p) => p.postId);
+        setScraps_id(scrapIds);
+      }
     } catch (e) {
-      setError(e);
+      console.log(e);
     }
-
-    setLoading(false);
   };
 
   const filtPosts = (genre) => {
@@ -88,8 +92,8 @@ export default function Userhome({ userInfo }) {
         .get(`http://localhost:4000/posts?user_id=${id}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
-          setPosts(res.data.post);
-          setData(res.data.post);
+          setPosts(res.data.data);
+          setData(res.data.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -112,11 +116,15 @@ export default function Userhome({ userInfo }) {
       axios
         .get(`http://localhost:4000/scraps?user_id=${id}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
-          setScraps(res.data.data);
-          const scrapIds = res.data.data.map((p) => p.postId);
-          setScraps_id(scrapIds);
-          setData(res.data.data);
+          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -138,11 +146,17 @@ export default function Userhome({ userInfo }) {
       axios
         .get(`http://localhost:4000/scraps?user_id=${id}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
-          setScraps(res.data.data);
-          const scrapIds = res.data.data.map((p) => p.postId);
-          setScraps_id(scrapIds);
-          setData(res.data.data);
+          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+            setData([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+            setData(res.data.data);
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -152,7 +166,7 @@ export default function Userhome({ userInfo }) {
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러 발생!!{error}</div>;
-  if (!posts && !scraps) return null;
+  // if (!posts || !scraps) return null;
   return (
     <div className={styles.container}>
       <div className={styles.userInfo_box}>
@@ -162,7 +176,8 @@ export default function Userhome({ userInfo }) {
         <div className={styles.info_box}>
           <p>{nickname}</p>
           <p>
-            내가 쓴 리뷰 : {posts.length} 스크랩 : {scraps.length}
+            내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
+            {!scraps ? 0 : scraps.length}
           </p>
         </div>
       </div>
@@ -216,7 +231,7 @@ export default function Userhome({ userInfo }) {
           </div>
         </Route>
         <Route path={`${match.path}/:postId`}>
-          <UpdateReviewBox />
+          <UpdateReviewBox userInfo={userInfo} setPosts={setData} />
         </Route>
       </Switch>
     </div>
