@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
 
 function Header({ isLogin, userInfo }) {
