@@ -10,7 +10,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
   const [movieId, setMovieId] = useState("");
   const history = useHistory();
   const match = useRouteMatch();
-  const handleSubmit = () => {
+  useEffect(() => {
     const getMovieId = async () => {
       await axios
         .get(`http://localhost:4000/posts?user_id=${userInfo.id}`)
@@ -22,36 +22,39 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
             .get(`http://localhost:4000/movies?movie_title=${movieTitle}`)
             .then((res) => setMovieId(res.data.data.id));
         });
-      const data = JSON.stringify({
-        userId: userInfo.id,
-        movieId: Number(movieId),
-        rate: 8.3,
-        text,
-      });
-
-      const config = {
-        method: "patch",
-        url: "http://localhost:4000/posts/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        data,
-      };
-
-      axios(config).then((res) => {
-        axios
-          .get(`http://localhost:4000/posts?movie_id=${movieId}`)
-          .then((res) => {
-            setPosts(res.data.data);
-            history.push(`/main/${movieId}`);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      });
     };
     getMovieId();
+  }, []);
+
+  const handleSubmit = () => {
+    const data = JSON.stringify({
+      userId: userInfo.id,
+      movieId: Number(movieId),
+      rate: 8.3,
+      text,
+    });
+
+    const config = {
+      method: "patch",
+      url: "http://localhost:4000/posts/",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      data,
+    };
+
+    axios(config).then((res) => {
+      axios
+        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .then((res) => {
+          setPosts(res.data.data);
+          history.push(`/main/${movieId}`);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
   };
   return (
     <div className={styles.contatiner}>

@@ -61,7 +61,7 @@
   font-weight: bolder;
   color: rgb(245, 243, 240);
   background-color: pink;
-  box-shadow: 1.5px 1.5px 1.5px rosybrown;
+  box-shadow: 2px 1.5px 1.5px rgba(188, 143, 143, 0.658);
 }
 .logo_wrapper:hover {
   color: pink;
@@ -82,7 +82,6 @@
   font-size: 17px;
 }
 
-.btn_wrapper:hover {
-  border: dashed 2px pink;
-  border-radius: 10px;
+.text_btn:hover {
+  color: cadetblue;
 }
