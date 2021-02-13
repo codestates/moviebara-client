@@ -42,7 +42,7 @@ export default function NewReview({ userInfo, setPosts }) {
         .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
-          setPosts(res.data.post);
+          setPosts(res.data.data);
           history.push(`/main/${movieId}`);
         })
         .catch(function (error) {
@@ -54,7 +54,7 @@ export default function NewReview({ userInfo, setPosts }) {
   return (
     <div className={styles.contatiner}>
       <div className={styles.rating_box}>
-        <p>영화 평점</p>
+        {/* <p>영화 평점</p> */}
         {/* <MvRate handleStarClick={handleStarClick} clicked={clicked} /> */}
       </div>
       <div className={styles.text_box}>

@@ -12,11 +12,12 @@ export default function PostList({
   const { nickname } = userInfo;
   const match = useRouteMatch();
 
-  if (posts.length === 0) {
+  if (!posts) {
     return <div></div>;
   } else {
     console.log(posts);
     console.log(userInfo);
+    console.log(scraps_id);
     return (
       <div className={styles.posts_box}>
         {posts.map((p) => {
