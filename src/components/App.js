@@ -13,7 +13,7 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
-
+import Userhome from "./Userhome";
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState();
@@ -26,7 +26,7 @@ export default function App() {
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <Header isLogin={isLogin} />
+          <Header isLogin={isLogin} userInfo={userInfo} />
         </nav>
         <div className={styles.pages}>
           <Switch>
