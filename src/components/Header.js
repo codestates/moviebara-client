@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +7,12 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
 
 function Header({ isLogin, userInfo }) {
+  const [title, setTitle] = useState("");
+  const history = useHistory();
+  const handleSearch = () => {
+    history.push(`/main/${title}`);
+  };
+
   return isLogin ? (
     <div className={styles.header}>
       <div className={styles.logo}>
@@ -15,8 +21,18 @@ function Header({ isLogin, userInfo }) {
         </Link>
       </div>
       <div className={styles.search}>
-        <input type="text" className={styles.search_bar} />
-        <FontAwesomeIcon icon={faSearch} className={styles.search_btn} />
+        <input
+          type="text"
+          className={styles.search_bar}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faSearch}
+          className={styles.search_btn}
+          onClick={handleSearch}
+        />
       </div>
       <div className={styles.nav_bar}>
         <Link to="/mypage">
@@ -25,6 +41,7 @@ function Header({ isLogin, userInfo }) {
             icon={faCog}
             fontSize={faThLarge}
           />
+          My page
         </Link>
         <Link to="/userhome">
           <FontAwesomeIcon className={styles.myhome_btn} icon={faUserCircle} />
