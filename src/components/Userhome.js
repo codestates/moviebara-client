@@ -43,10 +43,10 @@ export default function Userhome({ userInfo }) {
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:4000/posts?user_id=${id}`
+        `https://api.moviebara.com/posts?user_id=${id}`
       );
       const response2 = await axios.get(
-        `http://localhost:4000/scraps?user_id=${id}`
+        `https://api.moviebara.com/scraps?user_id=${id}`
       );
 
       setPosts(response.data.post);
@@ -76,7 +76,7 @@ export default function Userhome({ userInfo }) {
     const data = JSON.stringify({ postId: postId });
     const config = {
       method: "delete",
-      url: "http://localhost:4000/posts/",
+      url: "https://api.moviebara.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -85,7 +85,7 @@ export default function Userhome({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/posts?user_id=${id}`)
+        .get(`https://api.moviebara.com/posts?user_id=${id}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
           setPosts(res.data.post);
@@ -101,7 +101,7 @@ export default function Userhome({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "post",
-      url: "http://localhost:4000/scraps/",
+      url: "https://api.moviebara.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -110,7 +110,7 @@ export default function Userhome({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
           setScraps(res.data.data);
@@ -127,7 +127,7 @@ export default function Userhome({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "delete",
-      url: "http://localhost:4000/scraps/",
+      url: "https://api.moviebara.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -136,7 +136,7 @@ export default function Userhome({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           console.log("what the ffffffffffffffffff");
           setScraps(res.data.data);

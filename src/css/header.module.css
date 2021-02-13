@@ -1,6 +1,18 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.logo,
+.mypage_btn {
+  font-size: 50px;
+}
+.profile {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .search {

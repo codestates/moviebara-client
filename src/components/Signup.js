@@ -19,7 +19,7 @@ export default function SignUp() {
 
     const config = {
       method: "post",
-      url: "http://localhost:4000/users/",
+      url: "https://api.moviebara.com/users/",
       headers: {
         "Content-Type": "application/json",
       },

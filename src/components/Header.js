@@ -5,8 +5,9 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
 
-function Header({ isLogin }) {
-  return isLogin ? (
+function Header({ isLogin, userInfo }) {
+  console.log(isLogin, userInfo, "120398102381");
+  return isLogin && userInfo !== null ? (
     <div className={styles.header}>
       <span className={styles.logo}>
         <Link to="/main">Home</Link>
@@ -20,7 +21,7 @@ function Header({ isLogin }) {
           <FontAwesomeIcon className={styles.mypage_btn} icon={faCog} />
         </Link>
         <Link to="/userhome">
-          <FontAwesomeIcon className={styles.myhome_btn} icon={faUserCircle} />
+          <img src={userInfo.image} className={styles.profile}></img>
         </Link>
       </span>
     </div>
