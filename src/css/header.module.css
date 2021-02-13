@@ -52,15 +52,16 @@
 .logo_wrapper {
   border: dashed 0.5px rgb(245, 243, 240);
   width: 170px;
-  height: 40px;
+
   z-index: 101;
   text-align: center;
-
+  border-radius: 7px;
   font-size: 25px;
   font-style: oblique;
   font-weight: bolder;
   color: rgb(245, 243, 240);
   background-color: pink;
+  box-shadow: 1.5px 1.5px 1.5px rosybrown;
 }
 .logo_wrapper:hover {
   color: pink;
@@ -80,11 +81,8 @@
   font-weight: bolder;
   font-size: 22px;
 }
-.text_btn:hover {
-  color: rgb(245, 243, 240);
-}
 
 .btn_wrapper:hover {
-  border: dashed 0.5px rgb(245, 243, 240);
-  background-color: pink;
+  border: dashed 2px pink;
+  border-radius: 10px;
 }
