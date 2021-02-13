@@ -9,7 +9,7 @@
 
   flex-direction: column;
 
-  background-color: yellow;
+  background-color: rgb(245, 243, 240);
 }
 
 .nav {
@@ -34,6 +34,5 @@
   align-items: center;
   justify-content: center;
 
-  background-color: red;
-  overflow: visible;
+  background-color: rgb(245, 243, 240);
 }
