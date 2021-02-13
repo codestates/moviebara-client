@@ -9,9 +9,9 @@ function Main({ userInfo }) {
   const match = useRouteMatch();
   const [movies, setMovies] = useState([]);
 
-  // useEffect(() => {
-  //   getMovies();
-  // }, []);
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   const getMovies = () => {
     axios.get("http://localhost:4000/movies").then((res) => {
