@@ -13,9 +13,7 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import MyPage from "./Mypage.js";
 import Post from "./Post.js";
-import Userhome from "./Userhome.js";
-import { useHistory } from "react-router-dom";
-
+import Userhome from "./Userhome";
 export default function App() {
   const [isLogin, setIsLogin] = useState();
   const [userInfo, setUserInfo] = useState(null);

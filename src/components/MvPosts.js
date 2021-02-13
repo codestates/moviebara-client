@@ -24,7 +24,11 @@ export default function MvPosts({ userInfo }) {
   const [scraps_id, setScraps_id] = useState(null);
 
   useEffect(() => {
-    getData();
+    if (isNaN(Number(movieId))) {
+      getDataTitle();
+    } else {
+      getData();
+    }
   }, []);
 
   const getData = async () => {
@@ -37,19 +41,52 @@ export default function MvPosts({ userInfo }) {
       await axios
         .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
-          console.log(res.data.data);
           setPosts(res.data.data);
         });
       await axios
         .get(`https://api.moviebara.com/movies?movie_id=${movieId}`)
         .then((res) => {
-          console.log(res.data.data);
           setMvInfo(res.data.data);
         });
       await axios
         .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
-          console.log(res.status);
+          if (!res.data.data) {
+            setScraps([]);
+            setScraps_id([]);
+          } else {
+            setScraps(res.data.data);
+            const scrapIds = res.data.data.map((p) => p.postId);
+            setScraps_id(scrapIds);
+          }
+        });
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  const getDataTitle = async () => {
+    try {
+      setPosts(null);
+      setMvInfo(null);
+      setLoading(true);
+      setScraps([]);
+      setScraps_id([]);
+      await axios
+        .get(`http://localhost:4000/movies?movie_title=${movieId}`)
+        .then((res) => {
+          setMvInfo(res.data.data);
+        });
+      await axios
+        .get(`http://localhost:4000/posts?movie_id=${mvInfo.id}`)
+        .then((res) => {
+          setPosts(res.data.data);
+        });
+
+      await axios
+        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .then((res) => {
           if (!res.data.data) {
             setScraps([]);
             setScraps_id([]);
@@ -66,7 +103,6 @@ export default function MvPosts({ userInfo }) {
   };
 
   const handleDelete = (postId) => {
-    console.log("delete from mvposts");
     const data = JSON.stringify({ postId: postId });
     const config = {
       method: "delete",
@@ -81,7 +117,6 @@ export default function MvPosts({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
           setPosts(res.data.data);
         })
         .catch(function (error) {
@@ -105,7 +140,6 @@ export default function MvPosts({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
-          console.log(res.status);
           if (!res.data.data) {
             setScraps([]);
             setScraps_id([]);
@@ -136,7 +170,6 @@ export default function MvPosts({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
-          console.log(res.status);
           if (!res.data.data) {
             setScraps([]);
             setScraps_id([]);

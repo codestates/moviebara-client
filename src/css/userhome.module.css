@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: flex-end;
 }
-.linksBox {
+.links_Box {
   display: flex;
   justify-content: space-around;
   margin: 10px;

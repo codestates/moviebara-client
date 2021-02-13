@@ -15,9 +15,6 @@ export default function PostList({
   if (!posts) {
     return <div></div>;
   } else {
-    console.log(posts);
-    console.log(userInfo);
-    console.log(scraps_id);
     return (
       <div className={styles.posts_box}>
         {posts.map((p) => {
@@ -37,7 +34,6 @@ export default function PostList({
                     <button
                       className={styles.delete_btn}
                       onClick={() => {
-                        console.log(p.id + "삭제!");
                         deleteHandler(p.id);
                       }}
                     >

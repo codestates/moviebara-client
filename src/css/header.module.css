@@ -1,21 +1,87 @@
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
+  justify-content: space-evenly;
+  padding: 5px 25px;
+  width: 70%;
 }
-
-.logo,
-.mypage_btn {
-  font-size: 50px;
-}
-.profile {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-}
-
-.search {
+.header > div {
+  padding: 10px;
   display: flex;
+  flex: 1;
+}
+
+.logo {
+}
+.search {
+  justify-content: center;
+  align-items: center;
+}
+.nav_bar {
   justify-content: space-between;
+  padding: 0px 35px;
+}
+.mypage_btn {
+  padding: 0px 10px;
+  color: pink;
+}
+
+.myhome_btn {
+  padding: 0px 10px;
+  color: pink;
+  font-style: oblique;
+  font-weight: bolder;
+}
+.search > input {
+  width: 80%;
+  height: 26px;
+  border-radius: 999px;
+  box-shadow: black;
+}
+.search_btn {
+  padding: 5px;
+}
+
+.myhome_btn:hover {
+  color: cadetblue;
+}
+
+.mypage_btn:hover {
+  color: cadetblue;
+}
+
+.logo_wrapper {
+  border: dashed 0.5px rgb(245, 243, 240);
+  width: 170px;
+
+  z-index: 101;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 22px;
+  font-style: oblique;
+  font-weight: bolder;
+  color: rgb(245, 243, 240);
+  background-color: pink;
+  box-shadow: 2px 1.5px 1.5px rgba(188, 143, 143, 0.658);
+}
+.logo_wrapper:hover {
+  color: pink;
+  background-color: rgb(245, 243, 240);
+}
+.logo_wrapper > svg {
+  z-index: 120;
+}
+
+.search_btn:hover {
+  color: pink;
+}
+
+.text_btn {
+  color: pink;
+  font-style: oblique;
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+.text_btn:hover {
+  color: cadetblue;
 }

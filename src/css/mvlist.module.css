@@ -9,7 +9,7 @@
 .poster {
   display: grid;
   place-items: center;
-  border: solid 1px black;
-  background-color: blue;
-  height: 260px;
+  border-radius: 3px;
+  border: solid 0.8px black;
+  background-color: rgb(245, 243, 240);
 }

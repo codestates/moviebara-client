@@ -1,11 +1,4 @@
-import {
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-  useHistory,
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../css/userhome.module.css";
@@ -21,15 +14,6 @@ export default function Userhome({ userInfo }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [filtered, setFiltered] = useState(null);
-  const [genres, setGenres] = useState(null);
-  const history = useHistory();
-
-  const getGenreArray = (reviews) => {
-    const temp = reviews.map((p) => p.movie.genre);
-
-    setGenres([...new Set(temp)]);
-  };
 
   const getPosts = async () => {
     try {
@@ -48,8 +32,7 @@ export default function Userhome({ userInfo }) {
       const response2 = await axios.get(
         `https://api.moviebara.com/scraps?user_id=${id}`
       );
-      console.log(response.data.data);
-      console.log(response2.data.data);
+
       setPosts(response.data.data);
       setData(response.data.data);
       if (!response2.data.data) {
@@ -65,18 +48,11 @@ export default function Userhome({ userInfo }) {
     }
   };
 
-  const filtPosts = (genre) => {
-    const filteredPosts = posts.filter((p) => p.movie.genre === genre);
-
-    setFiltered(filteredPosts);
-  };
-
   useEffect(() => {
     getPosts();
   }, []);
 
   const handleDelete = (postId) => {
-    console.log("delete from userhome");
     const data = JSON.stringify({ postId: postId });
     const config = {
       method: "delete",
@@ -91,8 +67,6 @@ export default function Userhome({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/posts?user_id=${id}`)
         .then((res) => {
-          console.log("what the ffffffffffffffffff");
-          setPosts(res.data.data);
           setData(res.data.data);
         })
         .catch(function (error) {
@@ -116,7 +90,6 @@ export default function Userhome({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
-          console.log(res.status);
           if (!res.data.data) {
             setScraps([]);
             setScraps_id([]);
@@ -146,7 +119,6 @@ export default function Userhome({ userInfo }) {
       axios
         .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
-          console.log(res.status);
           if (!res.data.data) {
             setScraps([]);
             setScraps_id([]);
@@ -196,7 +168,6 @@ export default function Userhome({ userInfo }) {
           <button
             onClick={() => {
               setData(scraps);
-              console.log(scraps_id);
             }}
           >
             스크랩
@@ -205,20 +176,6 @@ export default function Userhome({ userInfo }) {
       </div>
       <Switch>
         <Route exact path={match.path}>
-          {/* <div className={styles.genreFilter_box}>
-            <div className={styles.genre_tag} onClick={setFiltered(posts)}>
-              모든 장르
-            </div>
-            {genres.map((g) => (
-              <div
-                key={genres.indexOf(g)}
-                className={styles.genre_tag}
-                onClick={filtPosts(g, posts)}
-              >
-                {g}
-              </div>
-            ))}
-          </div> */}
           <div className={styles.posts_box}>
             <PostList
               posts={data}
