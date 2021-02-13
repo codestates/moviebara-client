@@ -56,7 +56,7 @@
   z-index: 101;
   text-align: center;
   border-radius: 7px;
-  font-size: 25px;
+  font-size: 22px;
   font-style: oblique;
   font-weight: bolder;
   color: rgb(245, 243, 240);
@@ -79,7 +79,7 @@
   color: pink;
   font-style: oblique;
   font-weight: bolder;
-  font-size: 22px;
+  font-size: 17px;
 }
 
 .btn_wrapper:hover {
