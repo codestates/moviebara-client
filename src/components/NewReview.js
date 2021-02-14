@@ -19,7 +19,7 @@ export default function NewReview({ userInfo, setPosts }) {
 
     const config = {
       method: "post",
-      url: "http://localhost:4000/posts/",
+      url: "https://api.moviebara.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,7 +29,7 @@ export default function NewReview({ userInfo, setPosts }) {
 
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
           history.push(`/main/${movieId}`);

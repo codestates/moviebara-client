@@ -15,18 +15,18 @@ import MyPage from "./Mypage.js";
 import Post from "./Post.js";
 import Userhome from "./Userhome";
 export default function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [userInfo, setUserInfo] = useState();
-
-  useEffect(() => {
-    // 로그인 요청
-  });
+  const [isLogin, setIsLogin] = useState();
+  const [userInfo, setUserInfo] = useState(null);
 
   return (
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <Header isLogin={isLogin} userInfo={userInfo} />
+          <Header
+            isLogin={isLogin}
+            userInfo={userInfo}
+            setIsLogin={setIsLogin}
+          />
         </nav>
         <div className={styles.pages}>
           <Switch>

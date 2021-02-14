@@ -1,7 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+}
+
+.userInfoBox {
+  width: 1000px;
 }
 
 .userInfo {
@@ -20,12 +26,14 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+
 .links_Box {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin: 10px;
   border: solid 1px black;
-  width: 99%;
+  height: 50px;
 }
 
 Link {

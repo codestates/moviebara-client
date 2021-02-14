@@ -39,17 +39,17 @@ export default function MvPosts({ userInfo }) {
       setScraps([]);
       setScraps_id([]);
       await axios
-        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
         });
       await axios
-        .get(`http://localhost:4000/movies?movie_id=${movieId}`)
+        .get(`https://api.moviebara.com/movies?movie_id=${movieId}`)
         .then((res) => {
           setMvInfo(res.data.data);
         });
       await axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -74,18 +74,19 @@ export default function MvPosts({ userInfo }) {
       setScraps([]);
       setScraps_id([]);
       await axios
-        .get(`http://localhost:4000/movies?movie_title=${movieId}`)
+        .get(`https://api.moviebara.com/movies?movie_title=${movieId}`)
         .then((res) => {
           setMvInfo(res.data.data);
-        });
-      await axios
-        .get(`http://localhost:4000/posts?movie_id=${mvInfo.id}`)
-        .then((res) => {
-          setPosts(res.data.data);
+
+          axios
+            .get(`https://api.moviebara.com/posts?movie_id=${res.data.data.id}`)
+            .then((res2) => {
+              setPosts(res2.data.data);
+            });
         });
 
       await axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -106,7 +107,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId });
     const config = {
       method: "delete",
-      url: "http://localhost:4000/posts/",
+      url: "https://api.moviebara.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -115,7 +116,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
         })
@@ -129,7 +130,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "post",
-      url: "http://localhost:4000/scraps/",
+      url: "https://api.moviebara.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -138,7 +139,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -159,7 +160,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "delete",
-      url: "http://localhost:4000/scraps/",
+      url: "https://api.moviebara.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -168,7 +169,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/scraps?user_id=${id}`)
+        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);

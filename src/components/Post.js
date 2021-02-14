@@ -7,17 +7,17 @@ export default function Post({ post }) {
     <div className={styles.box}>
       <div className={styles.top}>
         <div className={styles.profilePhotoBox}>
-          <img className={styles.profilePhoto} src={dummyImage}></img>
+          <img className={styles.profilePhoto} src={post.user.image}></img>
         </div>
         <div className={styles.nickName}>{post.user.nickname}</div>
         <div className={styles.date}>{"2020-02-20"}</div>
       </div>
       <div className={styles.bottom}>
         <div className={styles.bottomLeft}>
-          <img src={dummyImage} className={styles.movieImage}></img>
+          <img src={post.movie.image} className={styles.movieImage}></img>
         </div>
         <div className={styles.bottomRight}>
-          <div className={styles.movieTitle}>영화제목</div>
+          <div className={styles.movieTitle}>{post.movie.title}</div>
           <div className={styles.movieReviewBox}>
             <textarea className={styles.movieReview} value={post.text}>
               {post.text}

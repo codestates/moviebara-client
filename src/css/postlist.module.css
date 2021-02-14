@@ -4,11 +4,6 @@
 }
 .post_wrapper {
   display: flex;
-  flex-direction: row;
-}
-.post {
-  flex: 2;
-}
-.UD_btn {
-  flex: 1;
+  align-items: center;
+  justify-content: center;
 }

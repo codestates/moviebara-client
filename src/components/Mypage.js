@@ -20,7 +20,7 @@ export default function MyPage(props) {
 
     const config = {
       method: "patch",
-      url: "http://localhost:4000/users/",
+      url: "https://api.moviebara.com/users/",
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -30,7 +30,7 @@ export default function MyPage(props) {
     axios(config)
       .then((response) => {
         console.log(response.data);
-        axios.get("http://localhost:4000/users/").then((res) => {
+        axios.get("https://api.moviebara.com/users/").then((res) => {
           props.setUserInfo(res.data.data);
         });
       })
