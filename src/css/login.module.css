@@ -94,3 +94,16 @@
 .signInButton * {
   color: white;
 }
+.inputs {
+  width: 50%;
+}
+
+.leftButton {
+  width: 50%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: red;
+}

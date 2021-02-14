@@ -42,20 +42,6 @@ export default function SignIn(props) {
   };
 
   const submitLogin = () => {
-    // if (!emailValidator(email)) {
-    //   setWarnings({
-    //     email: "올바른 이메일 형식이 아닙니다.",
-    //     password: "",
-    //   });
-    // } else if (!passwordValidator(password)) {
-    //   setWarnings({
-    //     email: "",
-    //     password:
-    //       "올바른 비밀번호 형식이 아닙니다. 숫자와 문자 포함 6~12자리 이내의 암호",
-    //   });
-    // } else {
-    //   setWarnings({ email: "", password: "" });
-
     const data = JSON.stringify({
       password: password,
       email: email,

@@ -95,11 +95,6 @@ function Header({ isLogin, userInfo, setIsLogin, setUserInfo }) {
             비회원 로그인
           </div>
         </div>
-        <div className={styles.btn_wrapper}>
-          <Link to="/topics" className={styles.text_btn}>
-            Test
-          </Link>
-        </div>
       </div>
     </div>
   );

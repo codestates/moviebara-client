@@ -16,7 +16,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
         .get(`https://api.moviebara.com/posts?user_id=${userInfo.id}`)
         .then((res) => {
           const post = res.data.data.filter((p) => p.id === Number(postId))[0];
-
+          setText(post.text);
           const movieTitle = post.movie.title;
           axios
             .get(`https://api.moviebara.com/movies?movie_title=${movieTitle}`)
@@ -63,6 +63,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
           onChange={(e) => {
             setText(e.target.value);
           }}
+          value={text}
         />
       </div>
       <button className={styles.submit} onClick={handleSubmit}>
