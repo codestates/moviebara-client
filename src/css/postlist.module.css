@@ -6,4 +6,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 60%;
+  background-color: rgb(219, 166, 243);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  color: rgb(247, 242, 233);
+}
+
+.link {
+  color: white;
+}
+
+.btn:hover {
+  color: gray;
+}
+
+.link:hover {
+  color: gray;
 }

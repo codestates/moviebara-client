@@ -8,6 +8,12 @@
 
 .userInfoBox {
   width: 1000px;
+  background-color: white;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-right: 90px;
+  margin-top: 30px;
 }
 
 .userInfo {
@@ -29,13 +35,29 @@
 
 .links_Box {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 10px;
-  border: solid 1px black;
+  margin: 40px;
+  background-color: pink;
+  color: white;
   height: 50px;
+  width: 65%;
+  margin-right: 120px;
+  font-size: large;
+}
+.btn:hover {
+  color: gray;
+}
+.line {
+  background-color: gray;
+  height: 1px;
+  margin: 10px;
+  margin-bottom: 30px;
+  width: 95%;
 }
 
-Link {
-  text-align: center;
+.part {
+  height: 35px;
+  background-color: white;
+  width: 1.2px;
 }

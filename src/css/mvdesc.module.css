@@ -5,4 +5,5 @@ img {
 
 .info_box > div {
   color: black;
+  font-style: italic;
 }

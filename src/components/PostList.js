@@ -29,17 +29,19 @@ export default function PostList({
                     <Post post={p} mvInfo={mvInfo} />
                   </div>
                   <div className={styles.UD_btn}>
-                    <div className={styles.update_btn}>
-                      <Link to={`${match.url}/${p.id}`}>수정</Link>
+                    <div className={styles.btn}>
+                      <Link className={styles.link} to={`${match.url}/${p.id}`}>
+                        수정
+                      </Link>
                     </div>
-                    <button
-                      className={styles.delete_btn}
+                    <div
+                      className={styles.btn}
                       onClick={() => {
                         deleteHandler(p.id);
                       }}
                     >
                       삭제
-                    </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -52,25 +54,25 @@ export default function PostList({
 
                 {scraps_id.includes(p.id) ? (
                   <div className={styles.UD_btn}>
-                    <button
-                      className={styles.scrap_btn}
+                    <div
+                      className={styles.btn}
                       onClick={() => {
                         unscrapHandler(p.id);
                       }}
                     >
-                      스크랩 취소
-                    </button>
+                      스크랩<div>취소</div>
+                    </div>
                   </div>
                 ) : (
                   <div className={styles.UD_btn}>
-                    <button
-                      className={styles.scrap_btn}
+                    <div
+                      className={styles.btn}
                       onClick={() => {
                         scrapHandler(p.id);
                       }}
                     >
                       스크랩
-                    </button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -83,25 +85,25 @@ export default function PostList({
                 </div>
                 {scraps_id.includes(p.postId) ? (
                   <div className={styles.UD_btn}>
-                    <button
-                      className={styles.scrap_btn}
+                    <div
+                      className={styles.btn}
                       onClick={() => {
                         unscrapHandler(p.postId);
                       }}
                     >
-                      스크랩 취소
-                    </button>
+                      스크랩<div>취소</div>
+                    </div>
                   </div>
                 ) : (
                   <div className={styles.UD_btn}>
-                    <button
-                      className={styles.scrap_btn}
+                    <div
+                      className={styles.btn}
                       onClick={() => {
                         scrapHandler(p.postId);
                       }}
                     >
                       스크랩
-                    </button>
+                    </div>
                   </div>
                 )}
               </div>
