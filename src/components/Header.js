@@ -5,13 +5,28 @@ import { faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
+import axios from "axios";
 
-function Header({ isLogin, userInfo }) {
+function Header({ isLogin, userInfo, setIsLogin }) {
   const [title, setTitle] = useState("");
   const history = useHistory();
   const handleSearch = () => {
     history.push(`/main/${title}`);
   };
+
+  const logoutHandler = () => {
+    axios.post("https://api.moviebara.com/logout/").then((res) => {
+      setIsLogin(false);
+      history.push("/");
+    });
+  };
+
+  function signOut() {
+    // var auth2 = gapi.auth2.getAuthInstance();
+    // auth2.signOut().then(function () {
+    //   console.log("User signed out.");
+    // });
+  }
 
   return isLogin ? (
     <div className={styles.header}>
@@ -47,6 +62,7 @@ function Header({ isLogin, userInfo }) {
           <FontAwesomeIcon className={styles.myhome_btn} icon={faUserCircle} />
           {!userInfo ? "안녕하세요!" : userInfo.nickname + "님"}
         </Link>
+        <button onClick={logoutHandler}>Logout</button>
       </div>
     </div>
   ) : (

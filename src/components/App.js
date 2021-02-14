@@ -22,7 +22,11 @@ export default function App() {
     <Router>
       <div className={styles.container}>
         <nav className={styles.nav}>
-          <Header isLogin={isLogin} userInfo={userInfo} />
+          <Header
+            isLogin={isLogin}
+            userInfo={userInfo}
+            setIsLogin={setIsLogin}
+          />
         </nav>
         <div className={styles.pages}>
           <Switch>

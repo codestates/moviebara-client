@@ -13,13 +13,13 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
   useEffect(() => {
     const getMovieId = async () => {
       await axios
-        .get(`http://localhost:4000/posts?user_id=${userInfo.id}`)
+        .get(`https://api.moviebara.com/posts?user_id=${userInfo.id}`)
         .then((res) => {
           const post = res.data.data.filter((p) => p.id === Number(postId))[0];
 
           const movieTitle = post.movie.title;
           axios
-            .get(`http://localhost:4000/movies?movie_title=${movieTitle}`)
+            .get(`https://api.moviebara.com/movies?movie_title=${movieTitle}`)
             .then((res) => setMovieId(res.data.data.id));
         });
     };
@@ -30,23 +30,23 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
     const data = JSON.stringify({
       userId: userInfo.id,
       movieId: Number(movieId),
+      postId,
       rate: 8.3,
       text,
     });
 
     const config = {
       method: "patch",
-      url: "http://localhost:4000/posts/",
+      url: "https://api.moviebara.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
-
       data,
     };
 
     axios(config).then((res) => {
       axios
-        .get(`http://localhost:4000/posts?movie_id=${movieId}`)
+        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
           history.push(`/main/${movieId}`);

@@ -60,7 +60,6 @@ export default function Userhome({ userInfo }) {
       headers: {
         "Content-Type": "application/json",
       },
-
       data,
     };
     axios(config).then((res) => {
@@ -141,37 +140,39 @@ export default function Userhome({ userInfo }) {
   // if (!posts || !scraps) return null;
   return (
     <div className={styles.container}>
-      <div className={styles.userInfo_box}>
-        <div className={styles.img_box}>
-          <img className={styles.img} src={image} alt="사용자 프로필 사진" />
+      <div className={styles.userInfoBox}>
+        <div>
+          <div className={styles.img_box}>
+            <img className={styles.img} src={image} alt="사용자 프로필 사진" />
+          </div>
+          <div className={styles.info_box}>
+            <p>{nickname}</p>
+            <p>
+              내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
+              {!scraps ? 0 : scraps.length}
+            </p>
+          </div>
         </div>
-        <div className={styles.info_box}>
-          <p>{nickname}</p>
-          <p>
-            내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
-            {!scraps ? 0 : scraps.length}
-          </p>
-        </div>
-      </div>
 
-      <div className={styles.links_Box}>
-        <div className={styles.myReview_link}>
-          <button
-            onClick={() => {
-              setData(posts);
-            }}
-          >
-            내가 쓴 리뷰
-          </button>
-        </div>
-        <div className={styles.myScrap_link}>
-          <button
-            onClick={() => {
-              setData(scraps);
-            }}
-          >
-            스크랩
-          </button>
+        <div className={styles.links_Box}>
+          <div className={styles.myReview_link}>
+            <button
+              onClick={() => {
+                setData(posts);
+              }}
+            >
+              내가 쓴 리뷰
+            </button>
+          </div>
+          <div className={styles.myScrap_link}>
+            <button
+              onClick={() => {
+                setData(scraps);
+              }}
+            >
+              스크랩
+            </button>
+          </div>
         </div>
       </div>
       <Switch>

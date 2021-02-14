@@ -1,6 +1,5 @@
 .container {
-  padding-top: 100px;
-  height: 100vh;
+  margin-top: 20px;
   width: 100vh;
   display: grid;
   grid-gap: 1rem;

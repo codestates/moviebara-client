@@ -5,6 +5,7 @@ export default function PostList({
   posts,
   userInfo,
   deleteHandler,
+  mvInfo,
   scraps_id,
   scrapHandler,
   unscrapHandler,
@@ -25,7 +26,7 @@ export default function PostList({
               return (
                 <div key={p.id} className={styles.post_wrapper}>
                   <div className={styles.post}>
-                    <Post post={p} />
+                    <Post post={p} mvInfo={mvInfo} />
                   </div>
                   <div className={styles.UD_btn}>
                     <div className={styles.update_btn}>
@@ -46,7 +47,7 @@ export default function PostList({
             return (
               <div key={p.id} className={styles.post_wrapper}>
                 <div className={styles.post}>
-                  <Post post={p} />
+                  <Post post={p} mvInfo={mvInfo} />
                 </div>
 
                 {scraps_id.includes(p.id) ? (
@@ -78,7 +79,7 @@ export default function PostList({
             return (
               <div key={p.postId} className={styles.post_wrapper}>
                 <div className={styles.post}>
-                  <Post post={p.post} />
+                  <Post post={p.post} mvInfo={mvInfo} />
                 </div>
                 {scraps_id.includes(p.postId) ? (
                   <div className={styles.UD_btn}>

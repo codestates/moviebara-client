@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { emailValidator, passwordValidator } from "../modules/validators.js";
+import GoogleLogin from "react-google-login";
 
 export default function SignIn(props) {
   const [email, setEmail] = useState();
@@ -12,6 +13,32 @@ export default function SignIn(props) {
     email: "",
     password: "",
   });
+
+  const responseGoogle = (response) => {
+    axios
+      .post(
+        "https://api.moviebara.com/login/googleLogin/",
+        {
+          token: response.tokenObj.id_token,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
+      .then(() => {
+        axios
+          .get("https://api.moviebara.com/users/")
+          .then((res) => {
+            props.setIsLogin(true);
+            props.setUserInfo(res.data.data);
+
+            history.push("/");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+  };
 
   const submitLogin = () => {
     // if (!emailValidator(email)) {
@@ -82,6 +109,13 @@ export default function SignIn(props) {
       </div>
       <div className={styles.buttonBox}>
         <button onClick={submitLogin}>SignIn</button>
+        <GoogleLogin
+          clientId="27009864668-5sahnm79e1ij8sih5sbgv4foariaslc4.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
       </div>
     </div>
   );
