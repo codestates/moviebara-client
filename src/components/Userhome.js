@@ -141,40 +141,40 @@ export default function Userhome({ userInfo }) {
   return (
     <div className={styles.container}>
       <div className={styles.userInfoBox}>
-        <div>
-          <div className={styles.img_box}>
-            <img className={styles.img} src={image} alt="사용자 프로필 사진" />
-          </div>
-          <div className={styles.info_box}>
-            <p>{nickname}</p>
-            <p>
-              내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
-              {!scraps ? 0 : scraps.length}
-            </p>
+        <div className={styles.img_box}>
+          <img className={styles.img} src={image} alt="사용자 프로필 사진" />
+          <div>{nickname}</div>
+        </div>
+        <div className={styles.line}></div>
+        <div className={styles.info_box}>
+          내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
+          {!scraps ? 0 : scraps.length}
+        </div>
+      </div>
+      <div className={styles.links_Box}>
+        <div className={styles.myReview_link}>
+          <div
+            className={styles.btn}
+            onClick={() => {
+              setData(posts);
+            }}
+          >
+            내가 쓴 리뷰
           </div>
         </div>
-
-        <div className={styles.links_Box}>
-          <div className={styles.myReview_link}>
-            <button
-              onClick={() => {
-                setData(posts);
-              }}
-            >
-              내가 쓴 리뷰
-            </button>
-          </div>
-          <div className={styles.myScrap_link}>
-            <button
-              onClick={() => {
-                setData(scraps);
-              }}
-            >
-              스크랩
-            </button>
+        <div className={styles.part}></div>
+        <div className={styles.myScrap_link}>
+          <div
+            className={styles.btn}
+            onClick={() => {
+              setData(scraps);
+            }}
+          >
+            스크랩
           </div>
         </div>
       </div>
+
       <Switch>
         <Route exact path={match.path}>
           <div className={styles.posts_box}>

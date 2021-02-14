@@ -207,8 +207,15 @@ export default function MvPosts({ userInfo }) {
         <div className={styles.posts_box}>
           <Switch>
             <Route exact path={match.path}>
-              <div className={styles.newReview_btn}>
-                <Link to={`${match.url}/create`}>리뷰 작성</Link>
+              <div className={styles.newReview_btn_box}>
+                <div className={styles.newReview_btn}>
+                  <Link
+                    className={styles.create_link}
+                    to={`${match.url}/create`}
+                  >
+                    리뷰 작성
+                  </Link>
+                </div>
               </div>
               <div className={styles.posts}>
                 <PostList

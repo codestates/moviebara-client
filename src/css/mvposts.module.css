@@ -3,10 +3,10 @@
   height: 300px;
 }
 .mvInfo_box {
-  border: solid 1px black;
   display: flex;
   flex-direction: row;
   width: 1000px;
+  background-color: white;
 
   margin-top: 20px;
 }
@@ -17,12 +17,29 @@
   padding: 10px;
 }
 
-.newReview_btn {
-  width: 95%;
-  border: solid 1px black;
-  margin: 5px;
-  padding: 3px;
+.newReview_btn_box {
+  height: 40px;
+  margin: 40px;
   display: flex;
-  flex-direction: row;
+
   justify-content: center;
+}
+.newReview_btn {
+  background-color: rgb(245, 187, 79);
+  width: 20%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.create_link:hover {
+  color: gray;
+}
+.create_link {
+  color: white;
+  font-size: large;
+}
+.mvPoster {
+  padding: 20px;
 }
