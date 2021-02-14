@@ -4,12 +4,20 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import requestLogin from "../modules/requestLogin";
+import { useHistory } from "react-router-dom";
 
 export default function MyPage(props) {
   const [nickname, setNickname] = useState();
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheck] = useState();
+  const history = useHistory();
   const [image, setImage] = useState(movies.movies[0].image);
+
+  useEffect(() => {
+    // console.log(props);
+    requestLogin(props.setIsLogin, props.setUserInfo, history);
+  }, []);
 
   const submitModified = () => {
     const formData = new FormData();

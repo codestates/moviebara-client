@@ -4,12 +4,16 @@ import styles from "../css/main.module.css";
 import { Route, useRouteMatch } from "react-router";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import requestLogin from "../modules/requestLogin";
+import { useHistory } from "react-router-dom";
 
-function Main({ userInfo }) {
+function Main({ userInfo, setIsLogin, setUserInfo }) {
   const match = useRouteMatch();
+  const history = useHistory();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
+    requestLogin(setIsLogin, setUserInfo, history);
     getMovies();
   }, []);
 
