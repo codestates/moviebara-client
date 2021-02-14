@@ -9,6 +9,10 @@
   display: grid;
   place-items: center;
   border-radius: 3px;
-  border: solid 0.8px black;
+  box-shadow: 2px 1.5px 1.5px rgba(188, 143, 143, 0.658);
   background-color: rgb(245, 243, 240);
+}
+
+.poster:hover {
+  transform: scale(1.07);
 }
