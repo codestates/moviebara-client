@@ -18,98 +18,102 @@ export default function PostList({
   } else {
     return (
       <div className={styles.posts_box}>
-        {posts.map((p) => {
-          if (!p.post) {
-            // props로 전달된 posts가 api- getscraps로 온건지, getposts로 온건지
-            if (p.user.nickname === nickname) {
-              // getposts로 온것중에 user가 쓴글
+        {posts
+          .map((p) => {
+            if (!p.post) {
+              // props로 전달된 posts가 api- getscraps로 온건지, getposts로 온건지
+              if (p.user.nickname === nickname) {
+                // getposts로 온것중에 user가 쓴글
+                return (
+                  <div key={p.id} className={styles.post_wrapper}>
+                    <div className={styles.post}>
+                      <Post post={p} mvInfo={mvInfo} />
+                    </div>
+                    <div className={styles.UD_btn}>
+                      <div className={styles.btn}>
+                        <Link
+                          className={styles.link}
+                          to={`${match.url}/${p.id}`}
+                        >
+                          수정
+                        </Link>
+                      </div>
+                      <div
+                        className={styles.btn}
+                        onClick={() => {
+                          deleteHandler(p.id);
+                        }}
+                      >
+                        삭제
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <div key={p.id} className={styles.post_wrapper}>
                   <div className={styles.post}>
                     <Post post={p} mvInfo={mvInfo} />
                   </div>
-                  <div className={styles.UD_btn}>
-                    <div className={styles.btn}>
-                      <Link className={styles.link} to={`${match.url}/${p.id}`}>
-                        수정
-                      </Link>
+                  {scraps_id.includes(p.id) ? (
+                    <div className={styles.UD_btn}>
+                      <div
+                        className={styles.btn}
+                        onClick={() => {
+                          unscrapHandler(p.id);
+                        }}
+                      >
+                        스크랩<div>취소</div>
+                      </div>
                     </div>
-                    <div
-                      className={styles.btn}
-                      onClick={() => {
-                        deleteHandler(p.id);
-                      }}
-                    >
-                      삭제
+                  ) : (
+                    <div className={styles.UD_btn}>
+                      <div
+                        className={styles.btn}
+                        onClick={() => {
+                          scrapHandler(p.id);
+                        }}
+                      >
+                        스크랩
+                      </div>
                     </div>
+                  )}
+                </div>
+              );
+            } else {
+              return (
+                <div key={p.postId} className={styles.post_wrapper}>
+                  <div className={styles.post}>
+                    <Post post={p.post} mvInfo={mvInfo} />
                   </div>
+                  {scraps_id.includes(p.postId) ? (
+                    <div className={styles.UD_btn}>
+                      <div
+                        className={styles.btn}
+                        onClick={() => {
+                          unscrapHandler(p.postId);
+                        }}
+                      >
+                        스크랩<div>취소</div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={styles.UD_btn}>
+                      <div
+                        className={styles.btn}
+                        onClick={() => {
+                          scrapHandler(p.postId);
+                        }}
+                      >
+                        스크랩
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             }
-            return (
-              <div key={p.id} className={styles.post_wrapper}>
-                <div className={styles.post}>
-                  <Post post={p} mvInfo={mvInfo} />
-                </div>
-
-                {scraps_id.includes(p.id) ? (
-                  <div className={styles.UD_btn}>
-                    <div
-                      className={styles.btn}
-                      onClick={() => {
-                        unscrapHandler(p.id);
-                      }}
-                    >
-                      스크랩<div>취소</div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={styles.UD_btn}>
-                    <div
-                      className={styles.btn}
-                      onClick={() => {
-                        scrapHandler(p.id);
-                      }}
-                    >
-                      스크랩
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          } else {
-            return (
-              <div key={p.postId} className={styles.post_wrapper}>
-                <div className={styles.post}>
-                  <Post post={p.post} mvInfo={mvInfo} />
-                </div>
-                {scraps_id.includes(p.postId) ? (
-                  <div className={styles.UD_btn}>
-                    <div
-                      className={styles.btn}
-                      onClick={() => {
-                        unscrapHandler(p.postId);
-                      }}
-                    >
-                      스크랩<div>취소</div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={styles.UD_btn}>
-                    <div
-                      className={styles.btn}
-                      onClick={() => {
-                        scrapHandler(p.postId);
-                      }}
-                    >
-                      스크랩
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          }
-        })}
+          })
+          .reverse()}
       </div>
     );
   }

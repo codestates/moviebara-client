@@ -3,6 +3,8 @@ import SignIn from "./SignIn.js";
 import SignUp from "./Signup.js";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Sign(props) {
   const history = useHistory();
@@ -18,10 +20,13 @@ export default function Sign(props) {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <div>
+        <div className={styles.leftButtonBox}>
           <Switch>
             <Route path="/signup">
-              <Link to="/signin">{"뒤로가기"}</Link>
+              <Link to="/signin" className={styles.leftButton}>
+                <FontAwesomeIcon icon={faChevronLeft} />
+                <span>&nbsp;Login</span>
+              </Link>
             </Route>
           </Switch>
         </div>

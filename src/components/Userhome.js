@@ -143,12 +143,13 @@ export default function Userhome({ userInfo }) {
       <div className={styles.userInfoBox}>
         <div className={styles.img_box}>
           <img className={styles.img} src={image} alt="사용자 프로필 사진" />
-          <div>{nickname}</div>
         </div>
-        <div className={styles.line}></div>
-        <div className={styles.info_box}>
-          내가 쓴 리뷰 : {!posts ? 0 : posts.length} 스크랩 :
-          {!scraps ? 0 : scraps.length}
+        <div>
+          <div className={styles.nickname}>{nickname}</div>
+          <div className={styles.info_box}>
+            <span>내가 쓴 리뷰: {!posts ? 0 : posts.length}</span>
+            <span>스크랩: {!scraps ? 0 : scraps.length}</span>
+          </div>
         </div>
       </div>
       <div className={styles.links_Box}>
@@ -162,7 +163,6 @@ export default function Userhome({ userInfo }) {
             내가 쓴 리뷰
           </div>
         </div>
-        <div className={styles.part}></div>
         <div className={styles.myScrap_link}>
           <div
             className={styles.btn}
@@ -174,7 +174,6 @@ export default function Userhome({ userInfo }) {
           </div>
         </div>
       </div>
-
       <Switch>
         <Route exact path={match.path}>
           <div className={styles.posts_box}>

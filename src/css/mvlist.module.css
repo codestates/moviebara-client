@@ -1,18 +1,31 @@
 .container {
-  margin-top: 20px;
-  width: 100vh;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  width: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
 .poster {
-  display: grid;
-  place-items: center;
-  border-radius: 3px;
-  box-shadow: 2px 1.5px 1.5px rgba(188, 143, 143, 0.658);
-  background-color: rgb(245, 243, 240);
+  width: 280px;
+  height: 450px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .poster:hover {
-  transform: scale(1.07);
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.posterInbox {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

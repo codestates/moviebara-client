@@ -26,21 +26,36 @@ export default function App() {
             isLogin={isLogin}
             userInfo={userInfo}
             setIsLogin={setIsLogin}
+            setUserInfo={setUserInfo}
           />
         </nav>
         <div className={styles.pages}>
           <Switch>
             <Route path="/mypage">
-              <MyPage userInfo={userInfo} setUserInfo={setUserInfo} />
+              <MyPage
+                userInfo={userInfo}
+                isLogin={isLogin}
+                setIsLogin={setIsLogin}
+                setUserInfo={setUserInfo}
+              />
             </Route>
             <Route path="/userhome">
-              <Userhome userInfo={userInfo} />
+              <Userhome
+                userInfo={userInfo}
+                isLogin={isLogin}
+                setUserInfo={setUserInfo}
+              />
             </Route>
             <Route path="/topics">
               <Topics />
             </Route>
             <Route path="/main">
-              <Main userInfo={userInfo} />
+              <Main
+                userInfo={userInfo}
+                isLogin={isLogin}
+                setIsLogin={setIsLogin}
+                setUserInfo={setUserInfo}
+              />
             </Route>
             <Route path="/post">
               <Post />

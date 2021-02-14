@@ -1,45 +1,85 @@
-.mvPoster > img {
-  width: 200px;
-  height: 300px;
-}
-.mvInfo_box {
+.container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  width: 1000px;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  background-color: white;
+}
+
+.container * {
+  color: rgb(54, 54, 54);
+}
+
+.mvInfo_box {
+  margin-top: 30px;
   background-color: white;
 
-  margin-top: 20px;
-}
-.mvInfo {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  width: 85%;
+
+  height: 400px;
+
+  margin-bottom: 20px;
+}
+
+.mvPoster,
+.posterImg {
+  height: 100%;
+}
+
+.mvInfo {
+  height: 100%;
+
+  padding-left: 30px;
+}
+
+.mvInfo > p {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+
+  line-height: 30px;
+}
+
+.mvInfoTitle {
+  font-size: 2rem;
+}
+
+.mvInfo > p:first-child {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  padding-right: 30px;
+
+  border-bottom: 3px solid #f25270;
+}
+
+.posts_box {
+  width: 85%;
 }
 
 .newReview_btn_box {
-  height: 40px;
-  margin: 40px;
+  height: 50px;
+
   display: flex;
 
   justify-content: center;
-}
-.newReview_btn {
-  background-color: rgb(245, 187, 79);
-  width: 20%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+
+  background-color: #f25270;
+
+  margin-bottom: 20px;
+
+  border-radius: 7px;
 }
 
-.create_link:hover {
-  color: gray;
-}
-.create_link {
+.newReview_btn_box * {
+  font-weight: bold;
+  font-size: 1.2rem;
   color: white;
-  font-size: large;
-}
-.mvPoster {
-  padding: 20px;
 }

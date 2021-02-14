@@ -4,6 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { emailValidator, passwordValidator } from "../modules/validators.js";
 import GoogleLogin from "react-google-login";
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 
 export default function SignIn(props) {
   const [email, setEmail] = useState();
@@ -41,20 +42,6 @@ export default function SignIn(props) {
   };
 
   const submitLogin = () => {
-    // if (!emailValidator(email)) {
-    //   setWarnings({
-    //     email: "올바른 이메일 형식이 아닙니다.",
-    //     password: "",
-    //   });
-    // } else if (!passwordValidator(password)) {
-    //   setWarnings({
-    //     email: "",
-    //     password:
-    //       "올바른 비밀번호 형식이 아닙니다. 숫자와 문자 포함 6~12자리 이내의 암호",
-    //   });
-    // } else {
-    //   setWarnings({ email: "", password: "" });
-
     const data = JSON.stringify({
       password: password,
       email: email,
@@ -96,6 +83,7 @@ export default function SignIn(props) {
           type="text"
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
+          className={styles.loginInputs}
         ></input>
         <div>{warnings.email}</div>
       </div>
@@ -104,14 +92,26 @@ export default function SignIn(props) {
           type="password"
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
+          className={styles.loginInputs}
         ></input>
         <div>{warnings.password}</div>
       </div>
       <div className={styles.buttonBox}>
-        <button onClick={submitLogin}>SignIn</button>
+        <button onClick={submitLogin} className={styles.signInButton}>
+          SignIn
+        </button>
         <GoogleLogin
           clientId="27009864668-5sahnm79e1ij8sih5sbgv4foariaslc4.apps.googleusercontent.com"
           buttonText="Login"
+          render={(renderProps) => (
+            <button
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+              className={styles.signInButton}
+            >
+              Google Login
+            </button>
+          )}
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}
