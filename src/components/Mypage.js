@@ -61,7 +61,7 @@ export default function MyPage(props) {
         </div>
         <img src={props.userInfo.image} className={styles.profile}></img>
       </label>
-      <div>{props.userInfo.email}</div>
+      <div className={styles.email}>{props.userInfo.email}</div>
       <input
         type="file"
         onChange={imageChangeHandler}

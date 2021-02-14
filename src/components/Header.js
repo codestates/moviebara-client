@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
@@ -7,27 +8,41 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import styles from "../css/header.module.css";
 import axios from "axios";
 
-function Header({ isLogin, userInfo, setIsLogin }) {
+function Header({ isLogin, userInfo, setIsLogin, setUserInfo }) {
   const [title, setTitle] = useState("");
   const history = useHistory();
+  let match = useRouteMatch();
+
+  console.log(window.location.pathname);
+
   const handleSearch = () => {
     history.push(`/main/${title}`);
   };
 
   const logoutHandler = () => {
     axios.post("https://api.moviebara.com/logout/").then((res) => {
+      console.log(res);
       setIsLogin(false);
       history.push("/");
     });
   };
 
+  const nonMemberLogin = () => {
+    axios.post("https://api.moviebara.com/login/nonMember/").then(() => {
+      axios.get("https://api.moviebara.com/users/").then((res) => {
+        setIsLogin(true);
+        setUserInfo(res.data.data);
+
+        history.push("/");
+      });
+    });
+  };
+
   return isLogin ? (
-    <div className={styles.header}>
-      <div className={styles.logo}>
-        <Link to="/main">
-          <div className={styles.logo_wrapper}>MOVIE-BARA</div>
-        </Link>
-      </div>
+    <div className={`${styles.header} ${styles.headerBackground}`}>
+      <Link to="/main" className={styles.logo}>
+        {/* <Link></Link> */}
+      </Link>
       <div className={styles.search}>
         <input
           type="text"
@@ -49,22 +64,22 @@ function Header({ isLogin, userInfo, setIsLogin }) {
             icon={faCog}
             fontSize={faThLarge}
           />
-          My page
+          Mypage
         </Link>
         <Link to="/userhome">
           <FontAwesomeIcon className={styles.myhome_btn} icon={faUserCircle} />
           {!userInfo ? "안녕하세요!" : userInfo.nickname + "님"}
         </Link>
-        <button onClick={logoutHandler}>Logout</button>
+        <a onClick={logoutHandler} className={styles.logoutButton}>
+          로그아웃
+        </a>
       </div>
     </div>
   ) : (
-    <div className={styles.header}>
-      <div className={styles.logo}>
-        <Link to="/">
-          <div className={styles.logo_wrapper}>MOVIE-BARA</div>
-        </Link>
-      </div>
+    <div className={`${styles.header}`}>
+      <Link to="/main" className={styles.logo}>
+        {/* <Link></Link> */}
+      </Link>
       <div className={styles.search}>
         <input type="text" className={styles.search_bar} />
         <FontAwesomeIcon icon={faSearch} className={styles.search_btn} />
@@ -76,9 +91,9 @@ function Header({ isLogin, userInfo, setIsLogin }) {
           </Link>
         </div>
         <div className={styles.btn_wrapper}>
-          <Link to="/none_membership_login" className={styles.text_btn}>
-            Google Login
-          </Link>
+          <div className={styles.text_btn} onClick={nonMemberLogin}>
+            비회원 로그인
+          </div>
         </div>
         <div className={styles.btn_wrapper}>
           <Link to="/topics" className={styles.text_btn}>

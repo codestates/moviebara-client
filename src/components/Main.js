@@ -13,7 +13,7 @@ function Main({ userInfo, setIsLogin, setUserInfo }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    requestLogin(setIsLogin, setUserInfo, history);
+    // requestLogin(setIsLogin, setUserInfo, history);
     getMovies();
   }, []);
 
@@ -26,7 +26,7 @@ function Main({ userInfo, setIsLogin, setUserInfo }) {
   return (
     <>
       <Route exact path={match.path}>
-        <div className={styles.contatiner}>
+        <div className={styles.container}>
           <MvList movies={movies} />
         </div>
       </Route>

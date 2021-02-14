@@ -4,6 +4,10 @@
   text-decoration: none;
 }
 
+input {
+  outline: none;
+}
+
 html,
 body,
 #root {

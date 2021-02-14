@@ -4,18 +4,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+
+  background-position: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loginInputs {
+  height: 32px;
+  width: 95%;
+
+  padding-left: 10px;
+
+  border: none;
+  margin-top: 10px;
+
+  /* opacity: 0.8; */
+
+  border-bottom: 2px solid red;
 }
 
 .box {
-  background-color: aqua;
+  position: absolute;
+
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.76);
   height: 500px;
   width: 400px;
+
+  border-radius: 10px;
+  /* border: 1px solid lightgray; */
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   flex-direction: column;
+
+  -webkit-box-shadow: 6px 11px 76px -39px rgba(188, 143, 143, 0.658);
+  -moz-box-shadow: 6px 11px 76px -39px rgba(188, 143, 143, 0.658);
+  box-shadow: 6px 11px 76px -39px rgba(188, 143, 143, 0.658);
 }
 
 .logo,
@@ -33,4 +63,34 @@
 
 .box > div {
   margin-bottom: 20px;
+}
+
+.loginButton {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.signInBox {
+  width: 50%;
+}
+
+.signInButton {
+  width: 100%;
+
+  margin-top: 10px;
+  height: 32px;
+
+  /* border: 1px solid black; */
+
+  border-radius: 3px;
+  /* border: 1px solid rgb(101, 85, 123); */
+  border: none;
+  color: white;
+
+  /* border: none; */
+  background-color: red;
+}
+
+.signInButton * {
+  color: white;
 }

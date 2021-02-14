@@ -1,87 +1,105 @@
 .header {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-evenly;
-  padding: 5px 25px;
-  width: 70%;
+
+  align-items: center;
+  justify-content: center;
+
+  /* background-color: #f29f05; */
+  /* background-color: rgb(102, 85, 123); */
+
+  font-weight: bold;
+  /* background-color: rgba(0, 0, 0, 0.1); */
 }
-.header > div {
-  padding: 10px;
-  display: flex;
-  flex: 1;
+
+.header * {
+  color: white;
+}
+
+.logo * {
+  color: red;
 }
 
 .logo {
-}
-.search {
-  justify-content: center;
+  width: 30%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 100%;
+  background-image: url("./images/MOVIE-BARA.png");
+
+  margin-left: 60px;
+
+  display: flex;
   align-items: center;
+  justify-content: center;
+  /* background-color: yellow; */
+
+  /* text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white; */
+  /* -webkit-text-stroke: 2px red; width and color */
+
+  font-style: italic;
+
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* background-color: yellowgreen; */
 }
 .nav_bar {
-  justify-content: space-between;
-  padding: 0px 35px;
-}
-.mypage_btn {
-  padding: 0px 10px;
-  color: pink;
+  width: 40%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /* background-color: aqua; */
 }
 
+.mypage_btn,
 .myhome_btn {
-  padding: 0px 10px;
-  color: pink;
-  font-style: oblique;
-  font-weight: bolder;
-}
-.search > input {
-  width: 80%;
-  height: 26px;
-  border-radius: 999px;
-  box-shadow: black;
-}
-.search_btn {
-  padding: 5px;
+  margin-right: 5px;
 }
 
-.myhome_btn:hover {
-  color: cadetblue;
+.search_bar {
+  width: 60%;
+  height: 50%;
+  margin-right: 10px;
+
+  padding-left: 10px;
+
+  color: black;
 }
 
-.mypage_btn:hover {
-  color: cadetblue;
+.logoutButton {
+  background-color: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20%;
+  height: 100%;
 }
 
-.logo_wrapper {
-  border: dashed 0.5px rgb(245, 243, 240);
-  width: 170px;
+.headerBackground {
+  background-color: white;
 
-  z-index: 101;
-  text-align: center;
-  border-radius: 7px;
-  font-size: 22px;
-  font-style: oblique;
-  font-weight: bolder;
-  color: rgb(245, 243, 240);
-  background-color: pink;
-  box-shadow: 2px 1.5px 1.5px rgba(188, 143, 143, 0.658);
-}
-.logo_wrapper:hover {
-  color: pink;
-  background-color: rgb(245, 243, 240);
-}
-.logo_wrapper > svg {
-  z-index: 120;
+  /* color: red; */
 }
 
-.search_btn:hover {
-  color: pink;
-}
-
-.text_btn {
-  color: pink;
-  font-style: oblique;
-  font-weight: bolder;
-  font-size: 17px;
-}
-
-.text_btn:hover {
-  color: cadetblue;
+.headerBackground * {
+  color: rgb(116, 116, 116);
 }

@@ -11,7 +11,7 @@ export default function MvList({ movies }) {
       {Array.isArray(movies)
         ? movies.map((mv) => (
             <div key={mv.id} className={styles.poster}>
-              <Link to={`${match.url}/${mv.id}`}>
+              <Link to={`${match.url}/${mv.id}`} className={styles.posterInbox}>
                 <MvDesc mv={mv} />
               </Link>
             </div>
