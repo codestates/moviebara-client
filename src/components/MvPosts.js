@@ -232,6 +232,7 @@ export default function MvPosts({ userInfo }) {
                   deleteHandler={handleDelete}
                   scrapHandler={handleScrap}
                   unscrapHandler={handleUnscrap}
+                  setPosts={setPosts}
                 />
               </div>
             </Route>

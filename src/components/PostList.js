@@ -9,6 +9,7 @@ export default function PostList({
   scraps_id,
   scrapHandler,
   unscrapHandler,
+  setPosts,
 }) {
   const { nickname } = userInfo;
   const match = useRouteMatch();
@@ -61,6 +62,9 @@ export default function PostList({
                         className={styles.btn}
                         onClick={() => {
                           unscrapHandler(p.id);
+                          const temp = [...posts];
+                          temp[temp.findIndex((v) => v.id === p.id)].scrap -= 1;
+                          setPosts(temp);
                         }}
                       >
                         스크랩<div>취소</div>
@@ -72,6 +76,9 @@ export default function PostList({
                         className={styles.btn}
                         onClick={() => {
                           scrapHandler(p.id);
+                          const temp = [...posts];
+                          temp[temp.findIndex((v) => v.id === p.id)].scrap += 1;
+                          setPosts(temp);
                         }}
                       >
                         스크랩
@@ -92,6 +99,9 @@ export default function PostList({
                         className={styles.btn}
                         onClick={() => {
                           unscrapHandler(p.postId);
+                          const temp = [...posts];
+                          temp.scrap += 1;
+                          setPosts(temp);
                         }}
                       >
                         스크랩<div>취소</div>
@@ -103,6 +113,9 @@ export default function PostList({
                         className={styles.btn}
                         onClick={() => {
                           scrapHandler(p.postId);
+                          const temp = [...posts];
+                          temp.scrap += 1;
+                          setPosts(temp);
                         }}
                       >
                         스크랩
