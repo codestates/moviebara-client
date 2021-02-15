@@ -50,7 +50,7 @@ export default function NewReview({ userInfo, setPosts }) {
       </div>
       <div className={styles.bottom}>
         <div className={styles.bottomLeft}>
-          {/* <img src={} className={styles.movieImage}></img> */}
+          {/* <img src= className={styles.movieImage}></img> */}
         </div>
         <div className={styles.bottomRight}>
           <div className={styles.movieTitle}>
