@@ -41,17 +41,38 @@ export default function NewReview({ userInfo, setPosts }) {
   };
 
   return (
-    <div className={styles.contatiner}>
-      <div className={styles.text_box}>
-        <textarea
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
+    <div className={styles.box}>
+      <div className={styles.top}>
+        <div className={styles.profilePhotoBox}>
+          <img className={styles.profilePhoto} src={userInfo.image}></img>
+        </div>
+        <div className={styles.nickName}>{userInfo.nickname}</div>
       </div>
-      <button className={styles.submit} onClick={handleSubmit}>
-        리뷰 등록
-      </button>
+      <div className={styles.bottom}>
+        <div className={styles.bottomLeft}>
+          {/* <img src={} className={styles.movieImage}></img> */}
+        </div>
+        <div className={styles.bottomRight}>
+          <div className={styles.movieTitle}>
+            {/* <div>{post.movie.title}</div> */}
+            {/* <div>{post.createdAt.slice(0, 10)}</div> */}
+          </div>
+          <div className={styles.movieReviewBox}>
+            <textarea
+              className={styles.movieReview}
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+            />
+          </div>
+          <div className={styles.movieUtil}>
+            <div className={styles.submit} onClick={handleSubmit}>
+              리뷰 등록
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
