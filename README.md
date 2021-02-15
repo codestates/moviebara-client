@@ -16,7 +16,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project 
+## About The Project 📽
 
 * 사진 넣기
 
@@ -26,7 +26,7 @@
 * 다른 사람의 감상이 이 영화에 대한 호기심을 자극했을 때, 감상을 스크랩 해 모아두자!
 * 서로의 감상을 공유하며 영화에 대한 시각을 넓힐 수 있다!
 
-## Tech Stacks
+## Tech Stacks 💻
 
 * 사진 넣기
 
