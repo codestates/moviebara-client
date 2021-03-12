@@ -18,7 +18,7 @@ function Main({ userInfo, setIsLogin, setUserInfo }) {
   }, []);
 
   const getMovies = () => {
-    axios.get("https://api.moviebara.com/movies/").then((res) => {
+    axios.get("https://apimovie.capybara25.com/movies/").then((res) => {
       console.log(res.data.data);
       setMovies(res.data.data);
     });

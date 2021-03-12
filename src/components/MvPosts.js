@@ -39,17 +39,17 @@ export default function MvPosts({ userInfo }) {
       setScraps([]);
       setScraps_id([]);
       await axios
-        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
+        .get(`https://apimovie.capybara25.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
         });
       await axios
-        .get(`https://api.moviebara.com/movies?movie_id=${movieId}`)
+        .get(`https://apimovie.capybara25.com/movies?movie_id=${movieId}`)
         .then((res) => {
           setMvInfo(res.data.data);
         });
       await axios
-        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
+        .get(`https://apimovie.capybara25.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -74,19 +74,21 @@ export default function MvPosts({ userInfo }) {
       setScraps([]);
       setScraps_id([]);
       await axios
-        .get(`https://api.moviebara.com/movies?movie_title=${movieId}`)
+        .get(`https://apimovie.capybara25.com/movies?movie_title=${movieId}`)
         .then((res) => {
           setMvInfo(res.data.data);
 
           axios
-            .get(`https://api.moviebara.com/posts?movie_id=${res.data.data.id}`)
+            .get(
+              `https://apimovie.capybara25.com/posts?movie_id=${res.data.data.id}`
+            )
             .then((res2) => {
               setPosts(res2.data.data);
             });
         });
 
       await axios
-        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
+        .get(`https://apimovie.capybara25.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -107,7 +109,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId });
     const config = {
       method: "delete",
-      url: "https://api.moviebara.com/posts/",
+      url: "https://apimovie.capybara25.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -116,7 +118,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
+        .get(`https://apimovie.capybara25.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
         })
@@ -130,7 +132,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "post",
-      url: "https://api.moviebara.com/scraps/",
+      url: "https://apimovie.capybara25.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -139,7 +141,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
+        .get(`https://apimovie.capybara25.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);
@@ -160,7 +162,7 @@ export default function MvPosts({ userInfo }) {
     const data = JSON.stringify({ postId: postId, userId: id });
     const config = {
       method: "delete",
-      url: "https://api.moviebara.com/scraps/",
+      url: "https://apimovie.capybara25.com/scraps/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -169,7 +171,7 @@ export default function MvPosts({ userInfo }) {
     };
     axios(config).then((res) => {
       axios
-        .get(`https://api.moviebara.com/scraps?user_id=${id}`)
+        .get(`https://apimovie.capybara25.com/scraps?user_id=${id}`)
         .then((res) => {
           if (!res.data.data) {
             setScraps([]);

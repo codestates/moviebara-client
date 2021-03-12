@@ -17,7 +17,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
     const getMovieId = async () => {
       console.log("433333333333");
       await axios
-        .get(`https://api.moviebara.com/posts?user_id=${userInfo.id}`)
+        .get(`https://apimovie.capybara25.com/posts?user_id=${userInfo.id}`)
         .then((res) => {
           const post = res.data.data.filter((p) => p.id === Number(postId))[0];
           setText(post.text);
@@ -25,7 +25,9 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
           console.log(post);
           const movieTitle = post.movie.title;
           axios
-            .get(`https://api.moviebara.com/movies?movie_title=${movieTitle}`)
+            .get(
+              `https://apimovie.capybara25.com/movies?movie_title=${movieTitle}`
+            )
             .then((res) => setMovieId(res.data.data.id));
         });
     };
@@ -43,7 +45,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
 
     const config = {
       method: "patch",
-      url: "https://api.moviebara.com/posts/",
+      url: "https://apimovie.capybara25.com/posts/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +54,7 @@ export default function UpdateReviewBox({ userInfo, setPosts }) {
 
     axios(config).then((res) => {
       axios
-        .get(`https://api.moviebara.com/posts?movie_id=${movieId}`)
+        .get(`https://apimovie.capybara25.com/posts?movie_id=${movieId}`)
         .then((res) => {
           setPosts(res.data.data);
           history.push(`/main/${movieId}`);

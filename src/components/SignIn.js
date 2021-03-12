@@ -18,7 +18,7 @@ export default function SignIn(props) {
   const responseGoogle = (response) => {
     axios
       .post(
-        "https://api.moviebara.com/login/googleLogin/",
+        "https://apimovie.capybara25.com/login/googleLogin/",
         {
           token: response.tokenObj.id_token,
         },
@@ -28,7 +28,7 @@ export default function SignIn(props) {
       )
       .then(() => {
         axios
-          .get("https://api.moviebara.com/users/")
+          .get("https://apimovie.capybara25.com/users/")
           .then((res) => {
             props.setIsLogin(true);
             props.setUserInfo(res.data.data);
@@ -49,7 +49,7 @@ export default function SignIn(props) {
 
     const config = {
       method: "post",
-      url: "https://api.moviebara.com/login/",
+      url: "https://apimovie.capybara25.com/login/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -59,7 +59,7 @@ export default function SignIn(props) {
     axios(config)
       .then(() => {
         axios
-          .get("https://api.moviebara.com/users/")
+          .get("https://apimovie.capybara25.com/users/")
           .then((res) => {
             props.setIsLogin(true);
             props.setUserInfo(res.data.data);

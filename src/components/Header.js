@@ -20,7 +20,7 @@ function Header({ isLogin, userInfo, setIsLogin, setUserInfo }) {
   };
 
   const logoutHandler = () => {
-    axios.post("https://api.moviebara.com/logout/").then((res) => {
+    axios.post("https://apimovie.capybara25.com/logout/").then((res) => {
       console.log(res);
       setIsLogin(false);
       history.push("/");
@@ -28,8 +28,8 @@ function Header({ isLogin, userInfo, setIsLogin, setUserInfo }) {
   };
 
   const nonMemberLogin = () => {
-    axios.post("https://api.moviebara.com/login/nonMember/").then(() => {
-      axios.get("https://api.moviebara.com/users/").then((res) => {
+    axios.post("https://apimovie.capybara25.com/login/nonMember/").then(() => {
+      axios.get("https://apimovie.capybara25.com/users/").then((res) => {
         setIsLogin(true);
         setUserInfo(res.data.data);
 

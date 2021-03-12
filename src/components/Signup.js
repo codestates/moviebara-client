@@ -39,7 +39,7 @@ export default function SignUp() {
 
     const config = {
       method: "post",
-      url: "https://api.moviebara.com/users/",
+      url: "https://apimovie.capybara25.com/users/",
       headers: {
         "Content-Type": "application/json",
       },

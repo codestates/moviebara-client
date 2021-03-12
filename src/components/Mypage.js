@@ -28,7 +28,7 @@ export default function MyPage(props) {
 
     const config = {
       method: "patch",
-      url: "https://api.moviebara.com/users/",
+      url: "https://apimovie.capybara25.com/users/",
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -38,7 +38,7 @@ export default function MyPage(props) {
     axios(config)
       .then((response) => {
         console.log(response.data);
-        axios.get("https://api.moviebara.com/users/").then((res) => {
+        axios.get("https://apimovie.capybara25.com/users/").then((res) => {
           props.setUserInfo(res.data.data);
         });
       })
